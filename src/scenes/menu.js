@@ -1,5 +1,7 @@
 let img_background
 let gioca
+let storia
+let credits
 
 function preload (s) {
     img_background = PP.assets.image.load(s, "assets/images/eggdog.png");
@@ -21,7 +23,7 @@ function create (s){
         0.5,
         0.5);
 
-    PP.shapes.text_styled_add(s, 
+    storia = PP.shapes.text_styled_add(s, 
         100,
         400,
         "Storia",
@@ -31,9 +33,19 @@ function create (s){
         "0xFFFFFF",
         null,
         0,
-        0.5);
+        0.5); 
     
-    gioca = PP.shapes.text_styled_add(s, 
+        if (PP.interactive.mouse.add(storia, "pointerdown",goto_storia)){
+       
+        } 
+    
+    function goto_storia(s) {
+        PP.scenes.start("storia");
+    }
+   
+   
+    
+    gioca = PP.shapes.text_styled_add(s,
         100,
         500,
         "Gioca",
@@ -45,12 +57,18 @@ function create (s){
         0,
         0.5);
 
-     if (PP.interactive.mouse.add(gioca, "pointerdown",change_scene)){
+        if (PP.interactive.mouse.add(gioca, "pointerdown",start_game)){
        
-      }
+        } 
+      
+      
+    function start_game (s){
+            PP.scenes.start("level1");
+        }
+    
 
     
-    PP.shapes.text_styled_add(s, 
+   credits = PP.shapes.text_styled_add(s, 
         100,
         600,
         "Crediti",
@@ -62,11 +80,18 @@ function create (s){
         0,
         0.5);
 
+        if (PP.interactive.mouse.add(credits, "pointerdown",goto_credits)){
+       
+        } 
     
-   function change_scene (s){
-    PP.scenes.start("level1");
-   }
+    function goto_credits(s) {
+        PP.scenes.start("credits");
+    }
+   
+
+
 }
+
 
 function update (s){
  
