@@ -1,7 +1,7 @@
 let img_background
 
 function preload (s) {
-    img_background = PP.assets.image.load(s, "assets/images/hq720.jpg");
+    img_background = PP.assets.image.load(s, "assets/eggdog.png");
 }
 
 function create (s){
