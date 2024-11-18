@@ -35,6 +35,7 @@ function create (s){
         0,
         0.5); 
     
+        //interazione con il tasto con funzione apposita per andare alla storia (idem per i successivi)
         if (PP.interactive.mouse.add(storia, "pointerdown",goto_storia)){
        
         } 
