@@ -22,11 +22,11 @@ function create (s){
     //create_trap(s);
 
 
-    floor = PP.shapes.rectangle_add(s, 640, 620, 1280, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
+    floor = PP.shapes.rectangle_add(s, 640, 550, 1280, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
    // PP.physics.add_collider(s, player, floor);
 
-    PP.assets.image.add(s, img_background, 0 , 500, 0, 0); //sfondo
+    PP.assets.image.add(s, img_background, 0 , 550, 0, 0); //sfondo
 
 }
 
