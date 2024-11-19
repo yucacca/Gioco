@@ -1,7 +1,7 @@
 let img_background;
 let floor;
 let player;
-let img_player
+let img_player;
 
 function preload (s) {
     preload_player(s);
@@ -16,7 +16,7 @@ function preload (s) {
 }
 
 function create (s){
-    create_player(s);
+    //create_player(s);
     //create_platform(s);
     //create_cheese(s);
     //create_princess (s);
@@ -28,22 +28,43 @@ function create (s){
     player = PP.assets.image.add(s, img_player, 500, 550, 0.5, 1); //questo andrebbe sostituito con lo spritesheet del personaggio
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
-    floor = PP.shapes.rectangle_add(s, 640, 550, 1280, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
+    //PP.physics.set_velocity_x(player, 50);
+    //PP.physics.set_velocity_y(player, 25);
+
+    //return;
+
+    floor = PP.shapes.rectangle_add(s, 640, 550, 10000, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
     PP.physics.add_collider(s, player, floor);   //la collisione con il pavimento
 
     //PP.assets.image.add(s, img_background, 0 , 550, 0, 0); //sfondo
 
+    PP.camera.start_follow(s, player, 0, 220);
 
 }
 
+
 function update (s){
-    update_player(s);
+
+    /*if(player.geometry.x >= 100) {
+        PP.physics.set_velocity_x(player, 100);
+    } else {
+        if(player.geometry.y >= 200) {
+            PP.physics.set_velocity_y(player, -50);
+        }    
+    }
+
+    return;*/
+
+
+    update_player(s, player);
     //update_platform(s);
     //update_princess(s);
     //update_topo(s);
     //update_trap(s);
+
 }
+
 
 function destroy (s)  {
 
