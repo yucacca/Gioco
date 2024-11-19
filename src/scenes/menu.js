@@ -46,7 +46,7 @@ function create (s){
    
    
     
-    gioca = PP.shapes.text_styled_add(s,
+   gioca = PP.shapes.text_styled_add(s,
         100,
         500,
         "Gioca",
@@ -66,7 +66,7 @@ function create (s){
     function start_game (s){
             PP.scenes.start("level1");
         }
-    
+
 
     
    credits = PP.shapes.text_styled_add(s, 

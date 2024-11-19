@@ -39,7 +39,9 @@ function create (s){
 
     //PP.assets.image.add(s, img_background, 0 , 550, 0, 0); //sfondo
 
+    //PP.camera.set_follow_offset(s,250, 250);
     PP.camera.start_follow(s, player, 0, 220);
+   
 
 }
 
