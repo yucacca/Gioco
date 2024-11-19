@@ -12,7 +12,7 @@ function preload (s) {
     //preload_trap(s); 
     
     img_background = PP.assets.image.load(s, "assets/images/eggdog.png");
-    img_player = PP.assets.image.load(s,"assets/images/player_placeholder.png");
+    img_player = PP.assets.image.load(s,"assets/images/personaggio.png");
 }
 
 function create (s){

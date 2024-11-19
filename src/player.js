@@ -3,7 +3,7 @@ let player;
 let player_speed = 100;
 
 function preload_player(s) {
-    img_player = PP.assets.image.load(s,"assets/images/player_placeholder.png");
+    img_player = PP.assets.image.load(s,"assets/images/personaggio.png");
 }
 
 function create_player(s) {
