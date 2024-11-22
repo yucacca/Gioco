@@ -26,7 +26,6 @@ function update_player(s, player) {
         
     } 
 
-
     if(player.geometry.y>=floor_height-1 || player.is_on_platform) {
         // Se mi trovo sul pavimento OPPURE su una piattaforma...
 

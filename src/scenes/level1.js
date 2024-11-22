@@ -5,11 +5,12 @@ let img_player;
 
 function preload (s) {
     preload_player(s);
+    preload_trap(s)
     //preload_platform(s);
     //preload_cheese(s);
     //preload_princess(s);
     //preload_topo(s);
-    //preload_trap(s); 
+    
     
     img_background = PP.assets.image.load(s, "assets/images/eggdog.png");
     img_player = PP.assets.image.load(s,"assets/images/personaggio.png");
@@ -21,7 +22,7 @@ function create (s){
     //create_cheese(s);
     //create_princess (s);
     //create_topo(s);
-    //create_trap(s);
+    
 
 
     PP.assets.tilesprite.add(s, img_background, 0, 0, 10000, 800, 0, 0); //spritesheet delllo sfondo
@@ -38,6 +39,8 @@ function create (s){
     PP.physics.add_collider(s, player, floor);   //la collisione con il pavimento
 
     //PP.assets.image.add(s, img_background, 0 , 550, 0, 0); //sfondo
+    
+    create_trap(s,player, floor);
 
     //PP.camera.set_follow_offset(s,250, 250);
     PP.camera.start_follow(s, player, 0, 220);
@@ -63,7 +66,7 @@ function update (s){
     //update_platform(s);
     //update_princess(s);
     //update_topo(s);
-    //update_trap(s);
+    update_trap(s);
 
 }
 

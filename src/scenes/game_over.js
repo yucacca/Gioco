@@ -1,3 +1,10 @@
+let riprova;
+
+function start_game (s){
+    PP.scenes.start("level1");
+}
+
+
 function preload(s) {
 
 }
@@ -20,9 +27,9 @@ function create(s) {
         0.5);
 
 
-    PP.shapes.text_styled_add(s, 
+    riprova = PP.shapes.text_styled_add(s, 
         PP.game.config.canvas_width / 2,
-        PP.game.config.canvas_height / 2,
+        600,
         "Riprova",
         100,
         "Helvetica",
@@ -31,6 +38,11 @@ function create(s) {
         null,
         0.5,
         0.5);
+
+
+        if (PP.interactive.mouse.add(riprova, "pointerdown",start_game)){
+       
+        } 
 
 }
 

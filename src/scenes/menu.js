@@ -7,6 +7,10 @@ function preload (s) {
     img_background = PP.assets.image.load(s, "assets/images/eggdog.png");
 }
 
+function start_game (s){
+    PP.scenes.start("level1");
+}
+
 function create (s){
      PP.assets.image.add(s, img_background, 0 , 0, 0, 0)
      
@@ -63,9 +67,6 @@ function create (s){
         } 
       
       
-    function start_game (s){
-            PP.scenes.start("level1");
-        }
 
 
     
