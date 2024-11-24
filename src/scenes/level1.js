@@ -1,7 +1,10 @@
 let img_background;
+let img_player;
+
 let floor;
 let player;
-let img_player;
+
+
 
 function preload (s) {
     preload_player(s);
@@ -13,7 +16,7 @@ function preload (s) {
     
     
     img_background = PP.assets.image.load(s, "assets/images/eggdog.png");
-    img_player = PP.assets.image.load(s,"assets/images/personaggio.png");
+    img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 128, 128);
 }
 
 function create (s){
@@ -25,26 +28,29 @@ function create (s){
     
 
 
-    PP.assets.tilesprite.add(s, img_background, 0, 0, 10000, 800, 0, 0); //spritesheet delllo sfondo
-    player = PP.assets.image.add(s, img_player, 500, 550, 0.5, 1); //questo andrebbe sostituito con lo spritesheet del personaggio
+    PP.assets.tilesprite.add(s, img_background, 0, 0, 10000, 1480, 0.5, 0.52); //spritesheet delllo sfondo
+    PP.shapes.rectangle_add(s, 640, 740, 10000, 382,"0xABCDEF", 1)
+
+    player = PP.assets.sprite.add(s, img_player, 500, 550, 0.5, 1); 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
     //PP.physics.set_velocity_x(player, 50);
     //PP.physics.set_velocity_y(player, 25);
 
     //return;
+    configure_player_animations(s, player); 
 
-    floor = PP.shapes.rectangle_add(s, 640, 550, 10000, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
+    floor = PP.shapes.rectangle_add(s, 640, 570, 10000, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
     PP.physics.add_collider(s, player, floor);   //la collisione con il pavimento
 
-    //PP.assets.image.add(s, img_background, 0 , 550, 0, 0); //sfondo
     
+
     create_trap(s,player, floor);
 
     //PP.camera.set_follow_offset(s,250, 250);
     PP.camera.start_follow(s, player, 0, 220);
-   
+
 
 }
 

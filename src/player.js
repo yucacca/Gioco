@@ -1,28 +1,49 @@
 let img_player;
 let player;
-let player_speed = 100;
+let player_speed = 150;
 let floor_height = 550;
 let jump_init_speed = 200;
 
+let curr_anim = "stop";
+
 
 function preload_player(s) {
-    img_player = PP.assets.image.load(s,"assets/images/personaggio.png");
+    //img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/protagonista_spritesheet.png", 128, 128);
 }
 
+function configure_player_animations(s, player) {
+    // Configuro le animazioni secondo lo spritesheet
+    PP.assets.sprite.animation_add_list(player, "walk_left", [5, 6, 7, 8], 3, -1);
+    PP.assets.sprite.animation_add_list(player, "walk_right", [0, 1, 2, 3], 3, -1);
+    PP.assets.sprite.animation_add(player, "jump_up", 0, 4, 3, 1);
+    PP.assets.sprite.animation_add(player, "jump_down", 4, 0, 3, 1);
+    PP.assets.sprite.animation_add(player, "stop", 1, 0, 3, 1);
+    PP.assets.sprite.animation_play(player, "stop");
+
+}
 
 function update_player(s, player) {
+
+
+    let next_anim = curr_anim; 
+
     if(PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
         
         PP.physics.set_velocity_x(player, player_speed);
+        next_anim = "walk_right";
         
     }
     else if(PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
         
         PP.physics.set_velocity_x(player, -player_speed);
+
+        next_anim = "walk_left";
         
     } else {
         
         PP.physics.set_velocity_x(player, 0);
+
+        next_anim = "stop";
         
     } 
 
@@ -44,10 +65,11 @@ function update_player(s, player) {
     // Le animazioni del salto vengono gestite in base alla velocita'
     // verticale
     if(PP.physics.get_velocity_y(player) < 0) {
+        next_anim = "jump_up";
     }
     else if(PP.physics.get_velocity_y(player) > 0) {
-    
-    }
+        next_anim = "jump_down";
+    } 
 
     function collision_floor(s, player, floor) {
         // Funzione di collisione con le piattaforme.
@@ -57,5 +79,10 @@ function update_player(s, player) {
         if( player.geometry.y = 550 ) {
                 player.is_on_platform = true;
         }
+    }
+
+    if(next_anim != curr_anim) {
+        PP.assets.sprite.animation_play(player, next_anim);
+        curr_anim = next_anim;
     }
 }
