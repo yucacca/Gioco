@@ -31,7 +31,7 @@ function create (s){
     PP.assets.tilesprite.add(s, img_background, 0, 0, 10000, 1480, 0.5, 0.52); //spritesheet delllo sfondo
     PP.shapes.rectangle_add(s, 640, 740, 10000, 382,"0xABCDEF", 1)
 
-    player = PP.assets.sprite.add(s, img_player, 500, 550, 0.5, 1); 
+    player = PP.assets.sprite.add(s, img_player, 500, 570, 0.5, 1); 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
     //PP.physics.set_velocity_x(player, 50);
@@ -57,15 +57,11 @@ function create (s){
 
 function update (s){
 
-    /*if(player.geometry.x >= 100) {
-        PP.physics.set_velocity_x(player, 100);
-    } else {
-        if(player.geometry.y >= 200) {
-            PP.physics.set_velocity_y(player, -50);
-        }    
-    }
-
-    return;*/
+    //if per passare al livello successivo
+    if(player.geometry.x >= 1700) {
+        PP.scenes.start("level2");
+        
+    } 
 
 
     update_player(s, player);
