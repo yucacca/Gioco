@@ -1,13 +1,6 @@
 let riprova;
 
-function start_game (s){
-    PP.scenes.start("level1");
-}
-
-
-
 function preload(s) {
-
 }
 
 function create(s) {

@@ -4,7 +4,7 @@ let player_speed = 150;
 let floor_height = 550;
 let jump_init_speed = 200;
 
-let curr_anim = "stop";
+let curr_anim = "stop_left";
 
 
 function preload_player(s) {
@@ -12,13 +12,10 @@ function preload_player(s) {
 }
 
 function configure_player_animations(s, player) {
-    PP.assets.sprite.animation_add_list(player, "walk_left", [5, 6, 7, 8], 3, -1);
-    PP.assets.sprite.animation_add_list(player, "walk_right", [0, 1, 2, 3], 3, -1);
+    PP.assets.sprite.animation_add_list(player, "walk", [0, 1, 2, 3], 3, -1);
     PP.assets.sprite.animation_add_list(player, "jump_up", [0, 4], 3, 0);
     PP.assets.sprite.animation_add_list(player, "jump_down", [4, 0], 3, 0);
     PP.assets.sprite.animation_add(player, "stop", 1, 0, 3, 0);
-    PP.assets.sprite.animation_play(player, "stop");
-
 }
 
 function update_player(s, player) {
@@ -29,22 +26,23 @@ function update_player(s, player) {
     if(PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
         
         PP.physics.set_velocity_x(player, player_speed);
-        next_anim = "walk_right";
+        next_anim = "walk";
         
     }
     else if(PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
         
         PP.physics.set_velocity_x(player, -player_speed);
 
-        next_anim = "walk_left";
-        
-    } else {
-        
-        PP.physics.set_velocity_x(player, 0);
-
-        next_anim = "stop";
-        
+        next_anim = "walk";   
     } 
+    
+    else {
+
+    PP.physics.set_velocity_x(player, 0);
+    next_anim = "stop";
+}
+
+
 
     if(player.geometry.y>=floor_height-1 || player.is_on_platform) {
         // Se mi trovo sul pavimento OPPURE su una piattaforma...
@@ -63,12 +61,28 @@ function update_player(s, player) {
 
     // Le animazioni del salto vengono gestite in base alla velocita'
     // verticale
-    if(PP.physics.get_velocity_y(player) < 0) {
+
+
+    if(PP.physics.get_velocity_y(player) < 0 ) {
+       
         next_anim = "jump_up";
+
     }
-    else if(PP.physics.get_velocity_y(player) > 0) {
-        next_anim = "jump_down";
-    } 
+
+    else if (PP.physics.get_velocity_y(player) > 0) {
+
+             next_anim = "jump_down";
+         
+    }
+
+    if (PP.physics.get_velocity_x(player) < 0) {
+        player.geometry.flip_x = true;
+    }
+    else if (PP.physics.get_velocity_x(player) > 0) {
+        player.geometry.flip_x = false;
+    }
+
+
 
     function collision_floor(s, player, floor) {
         // Funzione di collisione con le piattaforme.

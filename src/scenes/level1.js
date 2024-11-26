@@ -58,7 +58,7 @@ function create (s){
 function update (s){
 
     //if per passare al livello successivo
-    if(player.geometry.x >= 1700) {
+    if(player.geometry.x >= 1300) {
         PP.scenes.start("level2");
         
     } 
