@@ -7,3 +7,4 @@ function goto_game_over(s, obj1, obj2) {
     // in questo caso avvio la scena di game over
     PP.scenes.start("game_over");
 }
+

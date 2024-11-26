@@ -98,4 +98,8 @@ function update_player(s, player) {
         PP.assets.sprite.animation_play(player, next_anim);
         curr_anim = next_anim;
     }
+
+    if (player.geometry.y >= 730) {
+        PP.scenes.start("game_over");
+    }
 }
