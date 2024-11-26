@@ -34,32 +34,48 @@ function create (s){
     
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, 0, 550, 10000, 720, 0.5, 1);
-        img_background_0.tile_geometry.scroll_factor_x = 1;
+    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, 0, 550, 10000, 720, 0, 1);
+        //img_background_0.tile_geometry.scroll_factor_x = 1;
 
-    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 550, 10000, 720, 0.5, 1); 
-        img_background_1.tile_geometry.scroll_factor_x = 1;
+    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 550, 10000, 720, 0, 1); 
+        //img_background_1.tile_geometry.scroll_factor_x = 1;
 
-    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 550, 10000, 720, 0.5, 1); 
-        img_background_2.tile_geometry.scroll_factor_x = 1.3;
+    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 550, 10000, 720, 0, 1); 
+       // img_background_2.tile_geometry.scroll_factor_x = 1.3;
 
-    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, 550, 10000, 720, 0.5, 1); 
-        img_background_3.tile_geometry.scroll_factor_x = 1.5;
+    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, 550, 10000, 720, 0, 1); 
+        //img_background_3.tile_geometry.scroll_factor_x = 1.5;
 
 
-    PP.shapes.rectangle_add(s, 640, 740, 10000, 382,"0xABCDEF", 1);
 
-    player = PP.assets.sprite.add(s, img_player, 500, 570, 0.5, 1); 
+    PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0xABCDEF", 1);
+
+    player = PP.assets.sprite.add(s, img_player, 640, 570, 0.5, 1); 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
     configure_player_animations(s, player); 
+ if(player.geometry.x <= 120)  {
+    img_background_0.tile_geometry.scroll_factor_x = 0;
+    img_background_1.tile_geometry.scroll_factor_x = 0;
+    img_background_2.tile_geometry.scroll_factor_x = 0;
+    img_background_3.tile_geometry.scroll_factor_x = 0;
+}
 
-    floor = PP.shapes.rectangle_add(s, 640, 570, 820, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
+else{
+    img_background_0.tile_geometry.scroll_factor_x = 1;
+    img_background_1.tile_geometry.scroll_factor_x = 1;
+    img_background_2.tile_geometry.scroll_factor_x = 1.3;
+    img_background_3.tile_geometry.scroll_factor_x = 1.5;
+
+}
+
+    floor = PP.shapes.rectangle_add(s, 0, 570, 1220, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
     PP.physics.add_collider(s, player, floor);   //la collisione con il pavimento
 
 
     //PP.camera.set_follow_offset(s,250, 250);
+    
     PP.camera.start_follow(s, player, 0, 220);
 
 

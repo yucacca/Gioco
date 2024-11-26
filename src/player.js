@@ -102,4 +102,12 @@ function update_player(s, player) {
     if (player.geometry.y >= 730) {
         PP.scenes.start("game_over");
     }
+
+
+    if (player.geometry.x <= 0) {
+    //qui andrebbe messo un muro
+
+        console.log ("stop");
+
+    }
 }
