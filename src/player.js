@@ -12,12 +12,11 @@ function preload_player(s) {
 }
 
 function configure_player_animations(s, player) {
-    // Configuro le animazioni secondo lo spritesheet
     PP.assets.sprite.animation_add_list(player, "walk_left", [5, 6, 7, 8], 3, -1);
     PP.assets.sprite.animation_add_list(player, "walk_right", [0, 1, 2, 3], 3, -1);
-    PP.assets.sprite.animation_add(player, "jump_up", 0, 4, 3, 1);
-    PP.assets.sprite.animation_add(player, "jump_down", 4, 0, 3, 1);
-    PP.assets.sprite.animation_add(player, "stop", 1, 0, 3, 1);
+    PP.assets.sprite.animation_add_list(player, "jump_up", [0, 4], 3, 0);
+    PP.assets.sprite.animation_add_list(player, "jump_down", [4, 0], 3, 0);
+    PP.assets.sprite.animation_add(player, "stop", 1, 0, 3, 0);
     PP.assets.sprite.animation_play(player, "stop");
 
 }
