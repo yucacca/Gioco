@@ -23,6 +23,7 @@ function create_trap(s, player) {
     PP.physics.add_collider_f(s,player, trap_2, goto_game_over);*/
 } 
 
+
 function update_trap(s) {
     
 }

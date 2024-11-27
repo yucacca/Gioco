@@ -15,6 +15,7 @@ function preload (s) {
     //preload_cheese(s);
     //preload_princess(s);
     //preload_topo(s);
+    preload_trap (s);
     
     
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
@@ -29,7 +30,6 @@ function create (s){
     //create_player(s);
     //create_platform(s);
     //create_cheese(s);
-    //create_princess (s);
     //create_topo(s);
     
 
@@ -48,7 +48,7 @@ function create (s){
 
 
 
-    PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0xABCDEF", 1);
+    PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
 
     player = PP.assets.sprite.add(s, img_player, 640, 570, 0.5, 1); 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
@@ -73,10 +73,11 @@ else{
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
     PP.physics.add_collider(s, player, floor);   //la collisione con il pavimento
 
+    create_trap(s,player, floor);
 
     //PP.camera.set_follow_offset(s,250, 250);
     
-    PP.camera.start_follow(s, player, 0, 220);
+    PP.camera.start_follow(s, player, -50, 220);
 
 
 }
@@ -88,7 +89,6 @@ function update (s){
 
     update_player(s, player);
     //update_platform(s);
-    //update_princess(s);
     //update_topo(s);
 
 }
