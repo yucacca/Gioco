@@ -6,6 +6,7 @@ let img_player;
 
 let floor;
 let player;
+let wall;
 
 
 
@@ -34,27 +35,27 @@ function create (s){
     
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, 0, 550, 10000, 720, 0, 1);
+    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -600, 550, 10000, 720, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;
 
-    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 550, 10000, 720, 0, 1); 
+    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -600, 550, 10000, 720, 0, 1); 
         //img_background_1.tile_geometry.scroll_factor_x = 1;
 
-    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 550, 10000, 720, 0, 1); 
+    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -600, 550, 10000, 720, 0, 1); 
        // img_background_2.tile_geometry.scroll_factor_x = 1.3;
 
-    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, 550, 10000, 720, 0, 1); 
+    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -600, 550, 10000, 720, 0, 1); 
         //img_background_3.tile_geometry.scroll_factor_x = 1.5;
 
 
 
     PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
 
-    player = PP.assets.sprite.add(s, img_player, 640, 570, 0.5, 1); 
+    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
     configure_player_animations(s, player); 
- if(player.geometry.x <= 120)  {
+ if(player.geometry.x <= 250)  {
     img_background_0.tile_geometry.scroll_factor_x = 0;
     img_background_1.tile_geometry.scroll_factor_x = 0;
     img_background_2.tile_geometry.scroll_factor_x = 0;
@@ -69,16 +70,17 @@ else{
 
 }
 
-    floor = PP.shapes.rectangle_add(s, 0, 570, 1220, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
+    /*floor = PP.shapes.rectangle_add(s, 0, 570, 1220, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
     PP.physics.add(s, floor, PP.physics.type.STATIC); 
     PP.physics.add_collider(s, player, floor);   //la collisione con il pavimento
+*/
+    //create_trap(s,player, floor);
 
-    create_trap(s,player, floor);
+    /*wall = PP.shapes.rectangle_add(s, 0, 960, 640, 150, "0x000000", 0); //questo è un muro trasparente ed è stata messa la collisione tra pavimento e player
+    PP.physics.add(s, wall, PP.physics.type.STATIC); 
+    PP.physics.add_collider(s, player, wall);*/
 
-    //PP.camera.set_follow_offset(s,250, 250);
-    
-    PP.camera.start_follow(s, player, -50, 220);
-
+    create_pavimenti(s,player, wall);
 
 }
 
@@ -90,6 +92,16 @@ function update (s){
     update_player(s, player);
     //update_platform(s);
     //update_topo(s);
+
+    //qui andrebbe decisamente migliorato l'effetto. Se facciamo anche il lv 1 si crea un js solo per questo
+       // if (player.geometry.x <= 640) {
+          //  PP.camera.set_follow_offset(s, 640, 360);
+        //}
+    
+       // else {
+        PP.camera.start_follow(s, player, -50, 220);
+        //}
+
 
 }
 
