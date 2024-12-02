@@ -7,15 +7,12 @@ let img_player;
 let floor;
 let player;
 let wall;
-
+let pavimenti;
 
 
 function preload (s) {
     preload_player(s);
-    //preload_platform(s);
-    //preload_cheese(s);
-    //preload_princess(s);
-    //preload_topo(s);
+
     preload_trap (s);
     
     
@@ -35,21 +32,21 @@ function create (s){
     
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -600, 550, 10000, 720, 0, 1);
+    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -600, 660, 10000, 720, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;
 
-    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -600, 550, 10000, 720, 0, 1); 
+    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -600, 660, 10000, 720, 0, 1); 
         //img_background_1.tile_geometry.scroll_factor_x = 1;
 
-    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -600, 550, 10000, 720, 0, 1); 
+    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -600, 660, 10000, 720, 0, 1); 
        // img_background_2.tile_geometry.scroll_factor_x = 1.3;
 
-    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -600, 550, 10000, 720, 0, 1); 
+    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -600, 660, 10000, 720, 0, 1); 
         //img_background_3.tile_geometry.scroll_factor_x = 1.5;
 
 
 
-    PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
+    //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
 
     player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
@@ -80,7 +77,7 @@ else{
     PP.physics.add(s, wall, PP.physics.type.STATIC); 
     PP.physics.add_collider(s, player, wall);*/
 
-    create_pavimenti(s,player, wall);
+    create_pavimenti(s,player, pavimenti);
 
 }
 

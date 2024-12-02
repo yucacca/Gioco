@@ -2,7 +2,7 @@ let img_player;
 let player;
 let player_speed = 150;
 let floor_height = 550;
-let jump_init_speed = 200;
+let jump_init_speed = 270;  //rimettere a 200
 
 let curr_anim = "stop_left";
 
@@ -84,15 +84,20 @@ function update_player(s, player) {
 
 
 
-    function collision_floor(s, player, floor) {
-        // Funzione di collisione con le piattaforme.
-        // Qui devo verificare che il giocatore si trovi sopra
-        // la piattaforma e in quel caso aggiorno la variabile che
-        // abilita il salto (v. player.js)
-        if( player.geometry.y = 550 ) {
-                player.is_on_platform = true;
+    if(player.geometry.y>=floor_height-1 || player.is_on_platform) {
+        // Se mi trovo sul pavimento OPPURE su una piattaforma...
+
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+            // ... e premo il tasto spazio, allo salto
+            PP.physics.set_velocity_y(player, -jump_init_speed);
         }
+
+        
     }
+
+    player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
+                                    // si trova sulla piattaforma
+
 
     if(next_anim != curr_anim) {
         PP.assets.sprite.animation_play(player, next_anim);
