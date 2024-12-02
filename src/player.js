@@ -1,6 +1,6 @@
 let img_player;
 let player;
-let player_speed = 150;
+let player_speed = 250; //rimettere a 150
 let floor_height = 550;
 let jump_init_speed = 270;  //rimettere a 200
 

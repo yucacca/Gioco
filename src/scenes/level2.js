@@ -8,7 +8,7 @@ let floor;
 let player;
 let wall;
 let pavimenti;
-
+let collapsing;
 
 function preload (s) {
     preload_player(s);
@@ -32,16 +32,16 @@ function create (s){
     
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -600, 660, 10000, 720, 0, 1);
+    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -600, 660, 15000, 720, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;
 
-    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -600, 660, 10000, 720, 0, 1); 
+    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -600, 660, 15000, 720, 0, 1); 
         //img_background_1.tile_geometry.scroll_factor_x = 1;
 
-    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -600, 660, 10000, 720, 0, 1); 
+    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -600, 660, 15000, 720, 0, 1); 
        // img_background_2.tile_geometry.scroll_factor_x = 1.3;
 
-    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -600, 660, 10000, 720, 0, 1); 
+    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -600, 660, 15000, 720, 0, 1); 
         //img_background_3.tile_geometry.scroll_factor_x = 1.5;
 
 
@@ -78,7 +78,7 @@ else{
     PP.physics.add_collider(s, player, wall);*/
 
     create_pavimenti(s,player, pavimenti);
-
+    create_collapsing(s,player,collapsing);
 }
 
 
