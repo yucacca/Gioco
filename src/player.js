@@ -1,8 +1,8 @@
 let img_player;
 let player;
-let player_speed = 250; //rimettere a 150
+let player_speed = 250; //rimettere a 150 - 250
 let floor_height = 550;
-let jump_init_speed = 270;  //rimettere a 200
+let jump_init_speed = 350;  //rimettere a 200 - 350
 
 let curr_anim = "stop_left";
 
@@ -44,24 +44,22 @@ function update_player(s, player) {
 
 
 
-    if(player.geometry.y>=floor_height-1 || player.is_on_platform) {
+    if(player.is_on_platform) {
         // Se mi trovo sul pavimento OPPURE su una piattaforma...
 
         if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
-            // ... e premo il tasto spazio, allo salto
+        
             PP.physics.set_velocity_y(player, -jump_init_speed);
         }
-
-    }
-
-    if(player.geometry.y > 550){
-        player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
+        else {
+            player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
                                     // si trova sulla piattaforma
+        }
     }
+
 
     // Le animazioni del salto vengono gestite in base alla velocita'
     // verticale
-
 
     if(PP.physics.get_velocity_y(player) < 0 ) {
        
@@ -83,17 +81,6 @@ function update_player(s, player) {
     }
 
 
-
-    if(player.geometry.y>=floor_height-1 || player.is_on_platform) {
-        // Se mi trovo sul pavimento OPPURE su una piattaforma...
-
-        if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
-            // ... e premo il tasto spazio, allo salto
-            PP.physics.set_velocity_y(player, -jump_init_speed);
-        }
-
-        
-    }
 
     player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
                                     // si trova sulla piattaforma

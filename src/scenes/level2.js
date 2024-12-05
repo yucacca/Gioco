@@ -12,10 +12,8 @@ let collapsing;
 
 function preload (s) {
     preload_player(s);
-
     preload_trap (s);
-    
-    
+
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/secondo_piano_2.png");
@@ -25,10 +23,7 @@ function preload (s) {
 }
 
 function create (s){
-    //create_player(s);
-    //create_platform(s);
-    //create_cheese(s);
-    //create_topo(s);
+
     
 
 //setup parallasse per sfondo
@@ -67,15 +62,6 @@ else{
 
 }
 
-    /*floor = PP.shapes.rectangle_add(s, 0, 570, 1220, 1, "0x000000", 0); //questo è un pavimento trasparente ed è stata messa la collisione tra pavimento e player
-    PP.physics.add(s, floor, PP.physics.type.STATIC); 
-    PP.physics.add_collider(s, player, floor);   //la collisione con il pavimento
-*/
-    //create_trap(s,player, floor);
-
-    /*wall = PP.shapes.rectangle_add(s, 0, 960, 640, 150, "0x000000", 0); //questo è un muro trasparente ed è stata messa la collisione tra pavimento e player
-    PP.physics.add(s, wall, PP.physics.type.STATIC); 
-    PP.physics.add_collider(s, player, wall);*/
 
     create_pavimenti(s,player, pavimenti);
     create_collapsing(s,player,collapsing);
@@ -103,8 +89,16 @@ function update (s){
 }
 
 
-function destroy (s)  {
+function destroy (s) {
 
-}
+    PP.assets.destroy(img_background_0);
+    PP.assets.destroy(img_background_1);
+    PP.assets.destroy(secondo_piano_2.png);
+    PP.assets.destroy(terzo_piano_2.png);
 
-PP.scenes.add ("level2", preload, create, update, destroy)
+    console.log("pepee");
+}  
+
+
+
+PP.scenes.add ("level2", preload, create, update, destroy);

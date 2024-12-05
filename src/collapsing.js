@@ -5,11 +5,18 @@ function preload_collapsing(s) {
 }
 
 function collision_collapsing(s, player, collapsing) {
-    if( player.geometry.x >= pavimenti.geometry.x - pavimenti.geometry.display_width &&
-        player.geometry.x <= pavimenti.geometry.x + pavimenti.geometry.display_width ) {
+    if( player.geometry.x >= collapsing.geometry.x - collapsing.geometry.display_width &&
+        player.geometry.x <= collapsing.geometry.x + collapsing.geometry.display_width &&
+        player.geometry.y == collapsing.geometry.y - collapsing.geometry.display_height/2) {
             player.is_on_platform = true;
+            
+           // PP.timers.add_timer(s, 10, move_collapsing, false);
+            //console.log("ti prego ti prego");
     }
+
+
 }
+
 
 function create_collapsing(s,player,collapsing) {
     
@@ -41,3 +48,14 @@ function create_collapsing(s,player,collapsing) {
     PP.physics.add_collider_f(s, player, collapsing, collision_collapsing);
 
 }
+
+
+function move_collapsing(s,collapsing) {
+    PP.physics.add(s, collapsing, PP.physics.type.DYNAMIC);
+    PP.physics.set_immovable(collapsing, true);
+    PP.physics.set_allow_gravity(collapsing, false);    
+    PP.physics.add_collider_f(s, player, collapsing, collision_platform);
+    PP.physics.set_velocity_y(collapsing, 100);
+    console.log("miaoooo");
+}
+
