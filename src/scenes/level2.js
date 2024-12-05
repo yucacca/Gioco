@@ -9,10 +9,12 @@ let player;
 let wall;
 let pavimenti;
 let collapsing;
+let rovi;
 
 function preload (s) {
     preload_player(s);
     preload_trap (s);
+    
 
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
@@ -65,6 +67,8 @@ else{
 
     create_pavimenti(s,player, pavimenti);
     create_collapsing(s,player,collapsing);
+    //create_rovi(s,player,rovi);
+
 }
 
 
