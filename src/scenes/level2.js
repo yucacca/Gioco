@@ -67,6 +67,8 @@ else{
 
     create_pavimenti(s,player, pavimenti);
     create_collapsing(s,player,collapsing);
+    create_mobili(s,player);
+    create_fiume(s,player,fiume); 
     //create_rovi(s,player,rovi);
 
 }
@@ -89,7 +91,7 @@ function update (s){
         PP.camera.start_follow(s, player, -50, 220);
         //}
 
-
+    update_mobili(s);
 }
 
 

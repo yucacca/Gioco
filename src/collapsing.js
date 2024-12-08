@@ -26,7 +26,7 @@ function collision_collapsing(s, player, collapsing) {
 
     if (player.is_on_collapsing = true) {
 
-        PP.timers.add_timer(s, 15, move_collapsing, false);
+        PP.timers.add_timer(s, 250, move_collapsing, false);
         
             console.log("miaoooo");
         
@@ -42,7 +42,7 @@ function collision_collapsing(s, player, collapsing) {
 
 function create_collapsing(s,player,collapsing) {
     
-//Per shapes : s, posizione x, posizione y, spessore, altezza, colore e opacità. Per la posizione x prende il punto in mezzo, quindi va aggiunto metà spessore. 
+//Per shapes : s, posizione x, posizione y, spessore, altezza, colore e opacità. Per la posizione x e y prende il punto in mezzo, quindi va aggiunto metà spessore. 
 
 //collapsing 1
     collapsing = PP.shapes.rectangle_add(s, 832, 480, 128, 32, "0x634F4F", 1); 
