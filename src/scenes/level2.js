@@ -24,10 +24,10 @@ function preload (s) {
     img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 128, 128);
 }
 
+
 function create (s){
 
     
-
 //setup parallasse per sfondo
     img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -600, 660, 15000, 720, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;

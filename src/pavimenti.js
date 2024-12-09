@@ -27,7 +27,6 @@ function create_pavimenti(s,player,wall) {
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
-
  //piattaforma 2
     pavimenti = PP.shapes.rectangle_add(s, 1088, 640, 128, 150, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
@@ -42,7 +41,6 @@ function create_pavimenti(s,player,wall) {
     pavimenti = PP.shapes.rectangle_add(s, 2048, 688, 768, 64, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
-
 
 //piattaforma 4
     pavimenti = PP.shapes.rectangle_add(s, 2816, 544, 768, 352, "0x634F0F", 1); 

@@ -1,14 +1,13 @@
 let img_player;
 let player;
-let player_speed = 170; //rimettere a 170 - 250
+let player_speed = 250; //rimettere a 170 - 250
 let floor_height = 550;
-let jump_init_speed = 230;  //rimettere a 230 - 350
+let jump_init_speed = 350;  //rimettere a 230 - 350
 
 let curr_anim = "stop_left";
 
 
 function preload_player(s) {
-    //img_player = PP.assets.sprite.load_spritesheet(s, "assets/images/protagonista_spritesheet.png", 128, 128);
 }
 
 function configure_player_animations(s, player) {
@@ -19,7 +18,6 @@ function configure_player_animations(s, player) {
 }
 
 function update_player(s, player) {
-
 
     let next_anim = curr_anim; 
 
@@ -41,7 +39,6 @@ function update_player(s, player) {
     PP.physics.set_velocity_x(player, 0);
     next_anim = "stop";
 }
-
 
 
     if(player.is_on_platform) {
