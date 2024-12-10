@@ -9,7 +9,7 @@ let curr_anim = "stop_left";
 
 
 function preload_player(s) {
-    PP.gameState.set_variable("vite", 3);
+    PP.game_state.set_variable("vite", 3);
 }
 
 function configure_player_animations(s, player) {
