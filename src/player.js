@@ -1,13 +1,15 @@
 let img_player;
 let player;
-let player_speed = 250; //rimettere a 170 - 250
+let player_speed = 170; //rimettere a 170 - 250
 let floor_height = 550;
-let jump_init_speed = 350;  //rimettere a 230 - 350
+let jump_init_speed = 230;  //rimettere a 230 - 350
 
 let curr_anim = "stop_left";
 
 
+
 function preload_player(s) {
+    PP.gameState.set_variable("vite", 3);
 }
 
 function configure_player_animations(s, player) {
@@ -16,6 +18,9 @@ function configure_player_animations(s, player) {
     PP.assets.sprite.animation_add_list(player, "jump_down", [4, 0], 3, 0);
     PP.assets.sprite.animation_add(player, "stop", 1, 0, 3, 0);
 }
+
+    PP.game_state.set_variable("vite", 3);
+
 
 function update_player(s, player) {
 

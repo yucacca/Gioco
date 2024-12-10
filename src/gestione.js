@@ -9,5 +9,7 @@ function goto_game_over(s, obj1, obj2) {
     PP.scenes.start("game_over");
 }
 
+player_vite (s);
+
 
 

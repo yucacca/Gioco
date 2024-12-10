@@ -14,7 +14,7 @@ let rovi;
 function preload (s) {
     preload_player(s);
     preload_trap (s);
-    
+    preload_cuori (s);
 
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
@@ -69,6 +69,7 @@ else{
     create_collapsing(s,player,collapsing);
     create_mobili(s,player);
     create_fiume(s,player,fiume); 
+    create_cuori(s,player);
     //create_rovi(s,player,rovi);
 
 }

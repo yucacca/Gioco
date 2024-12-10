@@ -11,7 +11,6 @@ function collision_pavimenti(s, player, pavimenti) {
         player.geometry.y == pavimenti.geometry.y - pavimenti.geometry.display_height/2
         ) {
             player.is_on_platform = true;
-            console.log ("vero");
     }
 }
 
