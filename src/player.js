@@ -42,29 +42,29 @@ function update_player(s, player) {
 
 
     if(player.is_on_platform) {
-        // Se mi trovo sul pavimento OPPURE su una piattaforma...
 
         if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
         
             PP.physics.set_velocity_y(player, -jump_init_speed);
+            next_anim = "jump_up";
         }
-        else {
+        /*else {
             player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
                                     // si trova sulla piattaforma
-        }
+        }*/
     }
 
 
     // Le animazioni del salto vengono gestite in base alla velocita'
     // verticale
 
-    if(PP.physics.get_velocity_y(player) < 0 ) {
+    /*if(PP.physics.get_velocity_y(player) < 0 ) {
        
         next_anim = "jump_up";
 
     }
 
-    else if (PP.physics.get_velocity_y(player) > 0) {
+    else  */ if (PP.physics.get_velocity_y(player) > 0) {
 
              next_anim = "jump_down";
          
