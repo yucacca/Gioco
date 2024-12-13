@@ -2,7 +2,7 @@ let img_player;
 let player;
 let player_speed = 170; //rimettere a 170 - 250
 let floor_height = 550;
-let jump_init_speed = 230;  //rimettere a 230 - 350
+let jump_init_speed = 330;  //rimettere a 230 - 350
 
 let curr_anim = "stop_left";
 
