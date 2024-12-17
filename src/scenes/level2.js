@@ -96,7 +96,7 @@ function update (s){
         //}
     
        // else {
-        PP.camera.start_follow(s, player, -50, 220);
+        PP.camera.start_follow(s, player, -50, 180);
         //}
 
     update_mobili(s);

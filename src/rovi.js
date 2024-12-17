@@ -6,11 +6,11 @@ function preload_rovi(s) {
 }
 
 function create_rovi(s,player,rovi) {
-    rovi = PP.assets.image.add(s, img_rovi, 1872, 696, 0.5,1);
+    rovi = PP.assets.image.add(s, img_rovi, 1872, 666, 0.5,1);
     PP.physics.add(s,rovi, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, rovi, perdi_vite);
 
-    rovi = PP.assets.image.add(s, img_rovi, 2300, 696, 0.5,1);
+    rovi = PP.assets.image.add(s, img_rovi, 2300, 666, 0.5,1);
     PP.physics.add(s,rovi, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, rovi, perdi_vite);
     
