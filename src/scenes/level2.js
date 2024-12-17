@@ -10,11 +10,14 @@ let wall;
 let pavimenti;
 let collapsing;
 let rovi;
+let txt_score;
+
 
 function preload (s) {
     preload_player(s);
     preload_trap (s);
     preload_cuori (s);
+    preload_rovi (s);
 
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
@@ -70,14 +73,18 @@ else{
     create_mobili(s,player);
     create_fiume(s,player,fiume); 
     create_cuori(s,player);
-    //create_rovi(s,player,rovi);
+    create_rovi(s,player,rovi);
 
+    PP.game_state.set_variable("vite", 3);
+    txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
+    txt_score.tile_geometry.scroll_factor_x = 0;
+    txt_score.tile_geometry.scroll_factor_y = 0;
 }
 
 
 function update (s){
 
-
+    PP.shapes.text_change(txt_score, "vite: " + PP.game_state.get_variable("vite"));
 
     update_player(s, player);
     //update_platform(s);

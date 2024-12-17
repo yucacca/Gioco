@@ -2,14 +2,13 @@ let img_player;
 let player;
 let player_speed = 170; //rimettere a 170 - 250
 let floor_height = 550;
-let jump_init_speed = 330;  //rimettere a 230 - 350
+let jump_init_speed = 370;  //rimettere a 230 - 350
 
 let curr_anim = "stop_left";
 
 
 
 function preload_player(s) {
-    PP.game_state.set_variable("vite", 3);
 }
 
 function configure_player_animations(s, player) {
@@ -19,7 +18,6 @@ function configure_player_animations(s, player) {
     PP.assets.sprite.animation_add(player, "stop", 1, 0, 3, 0);
 }
 
-    PP.game_state.set_variable("vite", 3);
 
 
 function update_player(s, player) {
@@ -103,5 +101,13 @@ function update_player(s, player) {
 
         console.log ("stop");
 
+    }    
+    
+    
+    PP.game_state.set_variable("vite", 3);
+    let curr_score = PP.game_state.get_variable("vite");
+    if (curr_score = 3) {
+        PP.scenes.start("game_over");
     }
+
 }
