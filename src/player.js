@@ -104,9 +104,8 @@ function update_player(s, player) {
     }    
     
     
-    PP.game_state.set_variable("vite", 3);
     let curr_score = PP.game_state.get_variable("vite");
-    if (curr_score = 3) {
+    if (curr_score < 1) {
         PP.scenes.start("game_over");
     }
 
