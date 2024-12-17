@@ -33,11 +33,16 @@ function create(s) {
         0.5,
         0.5);
 
-
+        //qui devo renderlo con lo spazio ma non riesco
         if (PP.interactive.mouse.add(riprova, "pointerdown",start_game)){
        
         } 
 
+
+        /*if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+        
+            PP.scenes.start("level2");
+        }*/
 }
 
 function update(s) {

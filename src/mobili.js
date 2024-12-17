@@ -26,7 +26,7 @@ function create_mobili(s,player) {
     PP.physics.set_immovable(mobili_1, true);
     PP.physics.set_allow_gravity(mobili_1, false);    
     PP.physics.add_collider_f(s, player, mobili_1, collision_mobili);
-    PP.physics.set_velocity_x(mobili_1, 100);
+    PP.physics.set_velocity_x(mobili_1, 130);
 
     mobili_2 =  PP.shapes.rectangle_add(s, 4192, 424, 128, 32, "0xA34F0F", 1);
     PP.physics.add(s, mobili_2, PP.physics.type.DYNAMIC); 
@@ -55,10 +55,10 @@ function create_mobili(s,player) {
 
 function update_mobili(s) {
     if(mobili_1.geometry.x >= 2240) {
-        PP.physics.set_velocity_x(mobili_1, -100);
+        PP.physics.set_velocity_x(mobili_1, -130);
     }
     else if(mobili_1.geometry.x <= 1600) {
-        PP.physics.set_velocity_x(mobili_1, 100);
+        PP.physics.set_velocity_x(mobili_1, 130);
     }
    
 

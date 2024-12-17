@@ -24,7 +24,7 @@ function preload (s) {
     img_background_2 = PP.assets.image.load(s, "assets/images/secondo_piano_2.png");
     img_background_3 = PP.assets.image.load(s, "assets/images/primo_piano_2.png");
 
-    img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 128, 128);
+    img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 58,108);
 }
 
 

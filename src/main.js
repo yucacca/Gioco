@@ -5,7 +5,7 @@ let config={
     canvas_id: "game_area",
     background_color: 0x00FF00,
     debug_mode: true, 
-    gravity_value: 400,
+    gravity_value: 430,
 };
 
 PP.game.create(config);

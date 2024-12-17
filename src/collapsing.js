@@ -36,21 +36,21 @@ function collision_collapsing_1(s, player, collapsing_1) {
             player.is_on_platform = true;
             player.is_on_collapsing_1 = true;
             
-            console.log("ti prego ti prego");
+            
     }
 
     function move_collapsing_1(s) {   
         PP.physics.add(s, collapsing_1, PP.physics.type.DYNAMIC); 
         PP.physics.set_allow_gravity(collapsing_1, true);  
         PP.physics.set_velocity_y(collapsing_1, 100);
-        console.log("cade");
+        
     } 
 
     if (player.is_on_collapsing_1) {
 
         PP.timers.add_timer(s, 250, move_collapsing_1, false);
         
-            console.log("miaoooo");
+            
         
         }
 
@@ -62,7 +62,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
 }
 
 //collapsing 2
-    collapsing_2 = PP.shapes.rectangle_add(s, 2752, 224, 128, 32, "0x634F4F", 1); 
+    collapsing_2 = PP.shapes.rectangle_add(s, 2752, 254, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_2, true);
     PP.physics.set_allow_gravity(collapsing_2, false);    
@@ -76,21 +76,21 @@ function collision_collapsing_1(s, player, collapsing_1) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_2 = true;
                 
-                console.log("ti prego ti prego");
+                
         }
     
         function move_collapsing_2(s) {   
             PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
             PP.physics.set_allow_gravity(collapsing_2, true);  
             PP.physics.set_velocity_y(collapsing_2, 100);
-            console.log("cade");
+            
         } 
     
         if (player.is_on_collapsing_2 == true) {
     
             PP.timers.add_timer(s, 250, move_collapsing_2, false);
             
-                console.log("miaoooo");
+            
             
             }
     
@@ -106,7 +106,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 //collapsing 3
-    collapsing_3 = PP.shapes.rectangle_add(s, 3008, 192, 128, 32, "0x634F4F", 1); 
+    collapsing_3 = PP.shapes.rectangle_add(s, 3008, 222, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_3, true);
     PP.physics.set_allow_gravity(collapsing_3, false);    
@@ -119,21 +119,21 @@ function collision_collapsing_1(s, player, collapsing_1) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_3 = true;
                 
-                console.log("ti prego ti prego");
+                
         }
     
         function move_collapsing_3(s) {   
             PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
             PP.physics.set_allow_gravity(collapsing_3, true);  
             PP.physics.set_velocity_y(collapsing_3, 100);
-            console.log("cade");
+            
         } 
     
         if (player.is_on_collapsing_3 == true) {
     
             PP.timers.add_timer(s, 250, move_collapsing_3, false);
             
-                console.log("miaoooo");
+            
             
             }
     
@@ -158,21 +158,21 @@ function collision_collapsing_1(s, player, collapsing_1) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_4 = true;
                 
-                console.log("ti prego ti prego");
+           
         }
     
         function move_collapsing_4(s) {   
             PP.physics.add(s, collapsing_4, PP.physics.type.DYNAMIC); 
             PP.physics.set_allow_gravity(collapsing_4, true);  
             PP.physics.set_velocity_y(collapsing_4, 100);
-            console.log("cade");
+            
         } 
     
         if (player.is_on_collapsing_4 == true) {
     
             PP.timers.add_timer(s, 250, move_collapsing_4, false);
             
-                console.log("miaoooo");
+            
             
             }
     
@@ -184,7 +184,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 //collapsing 5
-    collapsing_5 = PP.shapes.rectangle_add(s, 6944, 192, 128, 32, "0x634F4F", 1); 
+    collapsing_5 = PP.shapes.rectangle_add(s, 6944, 222, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_5, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(collapsing_5, true);
     PP.physics.set_allow_gravity(collapsing_5, false);     
@@ -197,21 +197,21 @@ function collision_collapsing_1(s, player, collapsing_1) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_5 = true;
                 
-                console.log("ti prego ti prego");
+            
         }
     
         function move_collapsing_5(s) {   
             PP.physics.add(s, collapsing_5, PP.physics.type.DYNAMIC); 
             PP.physics.set_allow_gravity(collapsing_5, true);  
             PP.physics.set_velocity_y(collapsing_5, 100);
-            console.log("cade");
+           
         } 
     
         if (player.is_on_collapsing_5 == true) {
     
             PP.timers.add_timer(s, 250, move_collapsing_5, false);
             
-                console.log("miaoooo");
+        
             
             }
     
