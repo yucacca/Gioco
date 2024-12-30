@@ -16,25 +16,25 @@ function collision_bouncy(s,player,bouncy){
             
             player.on_bouncy = true;
             console.log("gay");
-
-            /*player.is_on_platform = true;
+            player.is_on_platform = true;
             
             if (player.on_bouncy = true) {
-                jump_init_speed = 460; 
+                jump_init_speed = 500; 
                 console.log("player on bouncy"); 
+            }
     }
-
-    }
+   
     else {
         //jump_init_speed = 360;
         console.log ("nu uh");
         player.on_bouncy = false;
+            
             if(playeron_bouncy = false){
-                jump_init_speed = 360;
+            jump_init_speed = 360;
             }   
-    }*/
+    }
 
-}
+    
 }
 
 function create_bouncy(s,player,bouncy) {
