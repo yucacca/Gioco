@@ -17,7 +17,6 @@ function preload_collapsing(s) {
 }
 
 
-
 function create_collapsing(s,player) {
     
 //Per shapes : s, posizione x, posizione y, spessore, altezza, colore e opacità. Per la posizione x e y prende il punto in mezzo, quindi va aggiunto metà spessore. 

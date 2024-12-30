@@ -18,7 +18,7 @@ function preload (s) {
     preload_trap (s);
     preload_cuori (s);
     preload_rovi (s);
-    //preload_bouncy(s);
+    preload_bouncy(s);
 
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
@@ -75,7 +75,7 @@ else{
     create_fiume(s,player,fiume); 
     create_cuori(s,player);
     create_rovi(s,player,rovi);
-   // create_bouncy(s,player,bouncy);
+    create_bouncy(s,player,bouncy);
 
     PP.game_state.set_variable("vite", 3);
     txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
@@ -98,10 +98,11 @@ function update (s){
         //}
     
        // else {
-        PP.camera.start_follow(s, player, -50, 180);
+        PP.camera.start_follow(s, player, -50, 100);
         //}
 
     update_mobili(s);
+    update_bouncy (s);
 }
 
 

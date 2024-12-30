@@ -11,8 +11,9 @@ function collision_pavimenti(s, player, pavimenti) {
         player.geometry.y == pavimenti.geometry.y - pavimenti.geometry.display_height/2
         ) {
             player.is_on_platform = true;
+            
     }
-}
+} 
 
 function create_pavimenti(s,player,wall) {
     
@@ -26,6 +27,7 @@ function create_pavimenti(s,player,wall) {
     pavimenti = PP.shapes.rectangle_add(s, 320, 640, 640, 150, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
+    
 
  //piattaforma 2
     pavimenti = PP.shapes.rectangle_add(s, 1088, 640, 128, 150, "0x634F0F", 1); 
