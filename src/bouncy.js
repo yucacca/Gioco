@@ -60,6 +60,6 @@ if (on_bouncy == true) {
     }
 
 */
-console.log (on_bouncy);  //di controllo per sapere quale flag sia attivo, eliminare una volta risolto
+//console.log (on_bouncy);  //di controllo per sapere quale flag sia attivo, eliminare una volta risolto
 }
 
