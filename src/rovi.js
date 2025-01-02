@@ -15,6 +15,8 @@ function create_rovi(s,player,rovi) {
     PP.physics.add_collider_f(s, player, rovi, perdi_vite);
 }
 
+
+//prob la sposto in gestione per comodità
 function perdi_vite(s){
     prev_score = PP.game_state.get_variable("vite");
     PP.game_state.set_variable("vite", prev_score-1);

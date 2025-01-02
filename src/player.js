@@ -11,11 +11,13 @@ let curr_anim = "stop_left";
 function preload_player(s) {
 }
 
+
+//c'è un lag che va
 function configure_player_animations(s, player) {
-    PP.assets.sprite.animation_add_list(player, "walk", [0, 1, 2, 3], 3, -1);
-    PP.assets.sprite.animation_add_list(player, "jump_up", [0, 4], 3, 0);
-    PP.assets.sprite.animation_add_list(player, "jump_down", [4, 0], 3, 0);
-    PP.assets.sprite.animation_add(player, "stop", 1, 0, 3, 0);
+    PP.assets.sprite.animation_add_list(player, "walk", [0, 1, 2, 3, 2, 1], 3, -1);
+    PP.assets.sprite.animation_add_list(player, "jump_up", [5, 4], 3, 0);
+    PP.assets.sprite.animation_add_list(player, "jump_down", [4, 5], 3, 0);
+    PP.assets.sprite.animation_add(player, "stop", 0, 0, 3, 0);
 }
 
 
@@ -91,19 +93,22 @@ function update_player(s, player) {
         curr_anim = next_anim;
     }
 
+
+
     if (player.geometry.y >= 730) {
         PP.scenes.start("game_over");
     }
 
-
-    if (player.geometry.x <= 0) {
+    //questo in teoria è obsoleto perché ho già aggiunto il muro in pavimenti.js
+    /*if (player.geometry.x <= 0) {
     //qui andrebbe messo un muro
 
         console.log ("stop");
 
-    }    
+    }   */ 
     
     
+    //variabile delle vite e gestione del game over
     let curr_score = PP.game_state.get_variable("vite");
     if (curr_score < 1) {
         PP.scenes.start("game_over");

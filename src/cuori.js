@@ -5,7 +5,7 @@ function preload_cuori(s) {
     img_cuori = PP.assets.sprite.load_spritesheet(s,"assets/images/cuori.png", 32, 32);
 }
 
-
+//prob la sposto in gestione per comodità, per avere tutte le funzioni che interagiscono con le vite in un postio solo
 function collision_cuori(s, player, cuori) {
 
     PP.assets.destroy(cuori);

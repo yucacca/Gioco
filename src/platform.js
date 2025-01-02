@@ -1,3 +1,4 @@
+//inutile penso
 let img_platform;
 
 function preload_platform(s) {
