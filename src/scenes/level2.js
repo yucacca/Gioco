@@ -12,6 +12,7 @@ let collapsing;
 let rovi;
 let txt_score;
 
+const asset = [ "img_background_0", "img_background_1", "img_background_2", "img_background_3", "img_player"];
 
 function preload (s) {
     preload_player(s);
@@ -20,18 +21,21 @@ function preload (s) {
     preload_rovi (s);
     preload_bouncy(s);
 
+    
+
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/secondo_piano_2.png");
     img_background_3 = PP.assets.image.load(s, "assets/images/primo_piano_2.png");
 
     img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 58,108);
+    
+    
 }
 
 
 function create (s){
 
-    
 //setup parallasse per sfondo
     img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -3000, 660, 15000, 720, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;
@@ -109,10 +113,7 @@ function update (s){
 
 function destroy (s) {
 
-    PP.assets.destroy(img_background_0);
-    PP.assets.destroy(img_background_1);
-    PP.assets.destroy(secondo_piano_2.png);
-    PP.assets.destroy(terzo_piano_2.png);
+//il problema è che quando va in game over non entra mai nel destroy quindi idk
 
     console.log("pepee");
 }  

@@ -2,8 +2,9 @@ let mobili_1;
 let mobili_2;
 let mobili_3;
 let mobili_4;
+let mobili_5;
 
-const mobili = [ "mobili_1", "mobili_2", "mobili_3", "mobili_4"]
+const mobili = [ "mobili_1", "mobili_2", "mobili_3", "mobili_4", "mobili_5"]
 
 function preload_mobili(s) {
     
@@ -50,6 +51,13 @@ function create_mobili(s,player) {
     PP.physics.set_velocity_y(mobili_4, 100);
     //dà problemi per cui quando sale il gioco lo calcola come salto
 
+    mobili_5 =  PP.shapes.rectangle_add(s, -1284, 250, 128, 32, "0xA34F0F", 1);
+    PP.physics.add(s, mobili_5, PP.physics.type.DYNAMIC); 
+    PP.physics.set_immovable(mobili_5, true);
+    PP.physics.set_allow_gravity(mobili_5, false);    
+    PP.physics.add_collider_f(s, player, mobili_5, collision_mobili);
+    PP.physics.set_velocity_x(mobili_5, 130);
+
 }
 
 
@@ -85,4 +93,11 @@ function update_mobili(s) {
         PP.physics.set_velocity_y(mobili_4, 100);
     }
 
+
+    if(mobili_5.geometry.x >= -970) {
+        PP.physics.set_velocity_x(mobili_5, -130);
+    }
+    else if(mobili_5.geometry.x <= -1380) {
+        PP.physics.set_velocity_x(mobili_5, 130);
+    }
 }

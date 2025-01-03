@@ -61,7 +61,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
 }
 
 //collapsing 2
-    collapsing_2 = PP.shapes.rectangle_add(s, 2752, 254, 128, 32, "0x634F4F", 1); 
+    collapsing_2 = PP.shapes.rectangle_add(s, 2752, 238, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_2, true);
     PP.physics.set_allow_gravity(collapsing_2, false);    
@@ -105,7 +105,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 //collapsing 3
-    collapsing_3 = PP.shapes.rectangle_add(s, 3008, 222, 128, 32, "0x634F4F", 1); 
+    collapsing_3 = PP.shapes.rectangle_add(s, 3008, 206, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_3, true);
     PP.physics.set_allow_gravity(collapsing_3, false);    

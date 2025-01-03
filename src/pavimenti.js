@@ -34,6 +34,7 @@ function create_pavimenti(s,player,wall) {
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
+
 //piattaforma 2b
     pavimenti = PP.shapes.rectangle_add(s, 1344, 480, 128, 32, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
@@ -50,10 +51,12 @@ function create_pavimenti(s,player,wall) {
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
+    
 //piattaforma 5
     pavimenti = PP.shapes.rectangle_add(s, 3360, 544, 64, 352, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
+
 
 //piattaforma 6
     pavimenti = PP.shapes.rectangle_add(s, 3680, 688, 256, 64, "0x634F0F", 1); 
@@ -66,25 +69,30 @@ function create_pavimenti(s,player,wall) {
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
+
 //piattaforma 8
     pavimenti = PP.shapes.rectangle_add(s, 4000, 592, 128, 256, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
+
 
 //piattaforma 8a
     pavimenti = PP.shapes.rectangle_add(s, 4708, 320, 128, 32, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
+
 //piattaforma 9
     pavimenti = PP.shapes.rectangle_add(s, 5536, 592, 640, 256, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
+
 //piattaforma 10
     pavimenti = PP.shapes.rectangle_add(s, 5536, 340, 128, 32, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
+
 
 //piattaforma 11
     pavimenti = PP.shapes.rectangle_add(s, 5920, 688, 128, 64, "0x634F0F", 1); 
@@ -111,19 +119,19 @@ function create_pavimenti(s,player,wall) {
 
 
 //piattaforma 15
-    pavimenti = PP.shapes.rectangle_add(s, -641, 420, 256, 350, "0x634F0F", 1); 
+    pavimenti = PP.shapes.rectangle_add(s, -641, 490, 256, 350, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
 
 //piattaforma 16
-    pavimenti = PP.shapes.rectangle_add(s, -641, -420, 256, 1000, "0x634F0F", 1); 
+    pavimenti = PP.shapes.rectangle_add(s, -641, -400, 256, 1000, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
 
 //piattaforma 17
-    pavimenti = PP.shapes.rectangle_add(s, -959, 0, 128, 32, "0x634F0F", 1); 
+    pavimenti = PP.shapes.rectangle_add(s, -940, 0, 128, 32, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
@@ -135,7 +143,7 @@ function create_pavimenti(s,player,wall) {
 
 
 //piattaforma 19
-    pavimenti = PP.shapes.rectangle_add(s, -1604, 446, 256, 508, "0x634F0F", 1); 
+    pavimenti = PP.shapes.rectangle_add(s, -1604, 480, 256, 508, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
