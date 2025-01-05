@@ -113,7 +113,7 @@ function create_pavimenti(s,player,wall) {
 
 
 //piattaforma 14
-    pavimenti = PP.shapes.rectangle_add(s, -384, 530, 256, 350, "0x634F0F", 1); 
+    pavimenti = PP.shapes.rectangle_add(s, -384, 565, 256, 350, "0x634F0F", 1); 
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
