@@ -63,13 +63,13 @@ function update_player(s, player) {
     // Le animazioni del salto vengono gestite in base alla velocita'
     // verticale
 
-    /*if(PP.physics.get_velocity_y(player) < 0 ) {
+    if(PP.physics.get_velocity_y(player) < 0 ) {
        
         next_anim = "jump_up";
 
     }
 
-    else  */ if (PP.physics.get_velocity_y(player) > 0) {
+    else  if (PP.physics.get_velocity_y(player) > 0) {
 
              next_anim = "jump_down";
          

@@ -12,7 +12,6 @@ function collision_cuori(s, player, cuori) {
 
     let prev_score = PP.game_state.get_variable("vite");
     PP.game_state.set_variable("vite", prev_score+1);
-    console.log("+1");
 }
 
 

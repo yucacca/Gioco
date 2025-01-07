@@ -19,8 +19,8 @@ function create_bouncy(s,player,bouncy) {
 
 function collision_bouncy(s,player,bouncy){
 
-    if( player.geometry.x >= bouncy.geometry.x - bouncy.geometry.display_width &&
-        player.geometry.x <= bouncy.geometry.x + bouncy.geometry.display_width &&
+    if( player.geometry.x >= bouncy.geometry.x - bouncy.geometry.display_width/2 &&
+        player.geometry.x <= bouncy.geometry.x + bouncy.geometry.display_width/2 &&
         player.geometry.y == bouncy.geometry.y - bouncy.geometry.display_height/2
         )
      {

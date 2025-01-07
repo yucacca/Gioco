@@ -11,6 +11,11 @@ let pavimenti;
 let collapsing;
 let txt_score;
 
+let anello_1_done = false;
+let anello_2_done = false;
+let anello_3_done = false;
+
+
 const asset = [ "img_background_0", "img_background_1", "img_background_2", "img_background_3", "img_player"];
 
 function preload (s) {
@@ -19,8 +24,6 @@ function preload (s) {
     preload_cuori (s);
     preload_rovi (s);
     preload_bouncy(s);
-
-    
 
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
@@ -52,9 +55,9 @@ function create (s){
 
     //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
     
-    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1);  VECCHIO SPAWN
-    //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
-    player = PP.assets.sprite.add(s, img_player, 5920, 450, 0.5, 1); //SPAWN PER TEST
+    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
+    //player = PP.assets.sprite.add(s, img_player, 4000, 400, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -79,12 +82,19 @@ function create (s){
     txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
+
+    PP.game_state.set_variable("anello", 0);
+    txt_score = PP.shapes.text_styled_add(s, 10, 30, "anello: 0", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
+    txt_score.tile_geometry.scroll_factor_x = 0;
+    txt_score.tile_geometry.scroll_factor_y = 0;
 }
 
 
 function update (s){
 
     PP.shapes.text_change(txt_score, "vite: " + PP.game_state.get_variable("vite"));
+    PP.shapes.text_change(txt_score, "anello: " + PP.game_state.get_variable("anello"));
+
 
     update_player(s, player);
 
@@ -93,40 +103,53 @@ function update (s){
     update_mobili(s);
     update_bouncy (s);
     
+ 
 //utilizzo anello 1
-    if (player.geometry.x >=1280 && player.geometry.x <=1408 ) {
+    if (player.geometry.x >=1280 && player.geometry.x <=1408 && anello_1_done == false ) {
 
         if(PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
         
             PP.assets.destroy(rovi_1);  
             PP.assets.destroy(rovi_2);  
-        
+
+
+            let prev_anello = PP.game_state.get_variable("anello");
+            PP.game_state.set_variable("anello", prev_anello+1);
+
+            anello_1_done = true;
+
         }
         
     }
 
 //utilizzo anello 2
-if (player.geometry.x >=3936 && player.geometry.x <=4064 ) {
+if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == false ) {
 
     if(PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
     
-        /*PP.assets.destroy(mobili_2);  
-        PP.assets.destroy(mobili_3);  */
-        PP.physics.set_allow_gravity(mobili_2, true);   
-        PP.physics.set_allow_gravity(mobili_3, true);  
+        mobili_2.destroyed = true;
+
+        PP.assets.destroy(mobili_2);  
+        PP.assets.destroy(mobili_3);  
         PP.assets.destroy(pavimenti_8a); 
     
 
         pavimenti = PP.shapes.rectangle_add(s, 4640, 500, 1152, 100, "0xAB4F0F", 1); 
         PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
         PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
+        
+
+        let prev_anello = PP.game_state.get_variable("anello");
+        PP.game_state.set_variable("anello", prev_anello+1);
+
+        anello_2_done = true;
     }
     
 }
 
 
 //utilizzo anello 3
-    if (player.geometry.x >=5724 && player.geometry.x <=5984) {
+    if (player.geometry.x >=5724 && player.geometry.x <=5984 && anello_3_done == false) {
 
         if(PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
     
@@ -134,12 +157,20 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 ) {
             pavimenti = PP.shapes.rectangle_add(s, 6176, 656, 128, 32, "0xAB4F0F", 1); 
             PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
             PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);  
-    
+
+            let prev_anello = PP.game_state.get_variable("anello");
+            PP.game_state.set_variable("anello", prev_anello+1);
+            anello_3_done = true;
         }
     
     }
 
 
+
+    if(player.geometry.x >= 7500) {
+        PP.scenes.start("finale1");
+        
+    } 
 
 }
 

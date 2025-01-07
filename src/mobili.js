@@ -3,6 +3,7 @@ let mobili_2;
 let mobili_3;
 let mobili_4;
 let mobili_5;
+mobili_2.destroyed == false;
 
 const mobili = [ "mobili_1", "mobili_2", "mobili_3", "mobili_4", "mobili_5"]
 
@@ -62,29 +63,31 @@ function create_mobili(s,player) {
 
 
 function update_mobili(s) {
+
     if(mobili_1.geometry.x >= 2240) {
         PP.physics.set_velocity_x(mobili_1, -130);
     }
     else if(mobili_1.geometry.x <= 1600) {
         PP.physics.set_velocity_x(mobili_1, 130);
     }
-   
 
+if(mobili_2.destroyed = false){
     if(mobili_2.geometry.x >= 4418) {
         PP.physics.set_velocity_x(mobili_2, -100);
     }
     else if(mobili_2.geometry.x <= 4192) {
         PP.physics.set_velocity_x(mobili_2, 100);
     }
+}
 
-
+if(mobili_2.destroyed = false){
     if(mobili_3.geometry.x >= 5122) {
         PP.physics.set_velocity_x(mobili_3, -100);
     }
     else if(mobili_3.geometry.x <= 4896) {
         PP.physics.set_velocity_x(mobili_3, 100);
     }
-
+}
 
     if(mobili_4.geometry.y >= 704) {
         PP.physics.set_velocity_y(mobili_4, -100);
