@@ -2,6 +2,7 @@ let wall;
 let pavimenti;
 
 function preload_pavimenti(s) {
+    img_piattaforma1 = PP.assets.image.load(s, "assets/images/F0.png"); //per ora ho lasciato l'immagine del fungo. basta che trascini le immagini all'interno di asset/images e poi copi il path (non so come si dica in ita) qui.
 
 }
 
@@ -24,9 +25,11 @@ function create_pavimenti(s,player,wall) {
     PP.physics.add_collider(s, player, wall);
 
 //piattaforma 1
-    pavimenti = PP.shapes.rectangle_add(s, 320, 640, 640, 150, "0x634F0F", 1); 
-    PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
+    //pavimenti = PP.shapes.rectangle_add(s, 320, 640, 640, 150, "0x634F0F", 1);  //sostituisci questa riga con quella successiva
+    pavimenti = PP.assets.image.add(s, img_bouncy, 320, 640, 0.5,1); //copia la posizione x e y da quello prima
+    PP.physics.add(s, pavimenti, PP.physics.type.STATIC);  //questi li lasci come sono
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
+    
     
 
  //piattaforma 2
