@@ -133,7 +133,8 @@ function create_pavimenti(s,player,wall) {
 
 
 //piattaforma 12
-    pavimenti = PP.shapes.rectangle_add(s, 7648, 528, 2048, 384, "0x634F0F", 1); 
+    //pavimenti = PP.shapes.rectangle_add(s, 7648, 528, 2048, 384, "0x634F0F", 1); 
+    pavimenti = PP.assets.image.add(s, img_platform_12, 7648, 528, 0.5,1);
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
