@@ -1,5 +1,17 @@
 let wall;
 let pavimenti;
+let img_platform_1;
+let img_platform_2;
+let img_platform_3;
+let img_platform_4;
+let img_platform_5;
+let img_platform_6;
+let img_platform_7;
+let img_platform_8;
+let img_platform_9;
+let img_platform_11;
+let img_platform_12;
+let img_platform_collapsing;
 
 function preload_pavimenti(s) {
     img_platform_1 = PP.assets.image.load(s, "assets/images/pavimenti/platform_1.png"); 
