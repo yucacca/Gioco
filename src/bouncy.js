@@ -11,7 +11,7 @@ function preload_bouncy(s) {
 
 
 function create_bouncy(s,player,bouncy) {
-    bouncy = PP.assets.image.add(s, img_bouncy, 512, 568, 0.5,1);
+    bouncy = PP.assets.image.add(s, img_bouncy, 512, 577, 0.5,1);
     PP.physics.add(s,bouncy, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, bouncy, collision_bouncy);
 

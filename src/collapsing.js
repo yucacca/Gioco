@@ -4,6 +4,8 @@ let collapsing_3;
 let collapsing_4;
 let collapsing_5;
 
+let img_collapsing;
+
 player.is_on_collapsing_1 == false;
 player.is_on_collapsing_2 == false;
 player.is_on_collapsing_3 == false;
@@ -13,7 +15,7 @@ player.is_on_collapsing_5 == false;
 
 
 function preload_collapsing(s) {
-
+    img_collapsing = PP.assets.image.load(s, "assets/images/pavimenti/platform_collapsing.png"); 
 }
 
 
@@ -22,7 +24,8 @@ function create_collapsing(s,player) {
 //Per shapes : s, posizione x, posizione y, spessore, altezza, colore e opacità. Per la posizione x e y prende il punto in mezzo, quindi va aggiunto metà spessore. 
 
 //collapsing 1
-    collapsing_1 = PP.shapes.rectangle_add(s, 832, 480, 128, 32, "0x634F4F", 1); 
+    collapsing_1= PP.assets.image.add(s, img_collapsing, 832, 480, 0.5,0.5);
+    //collapsing_1 = PP.shapes.rectangle_add(s, 832, 480, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_1, PP.physics.type.DYNAMIC);     
     PP.physics.set_immovable(collapsing_1, true);
     PP.physics.set_allow_gravity(collapsing_1, false);    
@@ -61,7 +64,8 @@ function collision_collapsing_1(s, player, collapsing_1) {
 }
 
 //collapsing 2
-    collapsing_2 = PP.shapes.rectangle_add(s, 2752, 238, 128, 32, "0x634F4F", 1); 
+    collapsing_2= PP.assets.image.add(s, img_collapsing, 2752, 238, 0.5,0.5);
+    //collapsing_2 = PP.shapes.rectangle_add(s, 2752, 238, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_2, true);
     PP.physics.set_allow_gravity(collapsing_2, false);    
@@ -105,7 +109,8 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 //collapsing 3
-    collapsing_3 = PP.shapes.rectangle_add(s, 3008, 206, 128, 32, "0x634F4F", 1); 
+    collapsing_3= PP.assets.image.add(s, img_collapsing, 3008, 206, 0.5,0.5);
+    //collapsing_3 = PP.shapes.rectangle_add(s, 3008, 206, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_3, true);
     PP.physics.set_allow_gravity(collapsing_3, false);    
@@ -144,7 +149,8 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 //collapsing 4
-    collapsing_4 = PP.shapes.rectangle_add(s, 6176, 656, 128, 32, "0x634F4F", 1); 
+    collapsing_4= PP.assets.image.add(s, img_collapsing, 6176, 656, 0.5,0.5);
+    //collapsing_4 = PP.shapes.rectangle_add(s, 6176, 656, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_4, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(collapsing_4, true);
     PP.physics.set_allow_gravity(collapsing_4, false);     
@@ -183,7 +189,8 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 //collapsing 5
-    collapsing_5 = PP.shapes.rectangle_add(s, 6944, 210, 128, 32, "0x634F4F", 1); 
+    collapsing_5= PP.assets.image.add(s, img_collapsing, 6944, 210, 0.5,0.5);
+    //collapsing_5 = PP.shapes.rectangle_add(s, 6944, 210, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_5, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(collapsing_5, true);
     PP.physics.set_allow_gravity(collapsing_5, false);     

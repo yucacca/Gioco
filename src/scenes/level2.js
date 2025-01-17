@@ -24,6 +24,8 @@ function preload (s) {
     preload_cuori (s);
     preload_rovi (s);
     preload_bouncy(s);
+    preload_pavimenti(s);
+    preload_collapsing(s);
 
     img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
@@ -39,24 +41,24 @@ function preload (s) {
 function create (s){
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -3000, 660, 15000, 720, 0, 1);
+    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -3000, 720, 15000, 720, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;
 
-    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -3000, 660, 15000, 720, 0, 1); 
+    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -3000, 720, 15000, 720, 0, 1); 
         //img_background_1.tile_geometry.scroll_factor_x = 1;
 
-    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -3000, 660, 15000, 720, 0, 1); 
+    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -3000, 720, 15000, 720, 0, 1); 
        // img_background_2.tile_geometry.scroll_factor_x = 1.3;
 
-    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -3000, 660, 15000, 720, 0, 1); 
+    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -3000, 720, 15000, 720, 0, 1); 
         //img_background_3.tile_geometry.scroll_factor_x = 1.5;
 
 
 
     //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
     
-    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
-    player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
+    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
     //player = PP.assets.sprite.add(s, img_player, 4000, 400, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
@@ -66,8 +68,8 @@ function create (s){
 
     img_background_0.tile_geometry.scroll_factor_x = 1;
     img_background_1.tile_geometry.scroll_factor_x = 1;
-    img_background_2.tile_geometry.scroll_factor_x = 1.3;
-    img_background_3.tile_geometry.scroll_factor_x = 1.5;
+    img_background_2.tile_geometry.scroll_factor_x = 1.1;
+    img_background_3.tile_geometry.scroll_factor_x = 1.3;
 
 
     create_pavimenti(s,player, pavimenti);

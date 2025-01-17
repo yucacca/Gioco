@@ -63,6 +63,7 @@ function create_mobili(s,player) {
 
 
 function update_mobili(s) {
+    console.log(mobili_2.destroyed);
 
     if(mobili_1.geometry.x >= 2240) {
         PP.physics.set_velocity_x(mobili_1, -130);
@@ -71,22 +72,25 @@ function update_mobili(s) {
         PP.physics.set_velocity_x(mobili_1, 130);
     }
 
-if(mobili_2.destroyed = false){
+if(mobili_2.destroyed == false){
     if(mobili_2.geometry.x >= 4418) {
         PP.physics.set_velocity_x(mobili_2, -100);
     }
     else if(mobili_2.geometry.x <= 4192) {
         PP.physics.set_velocity_x(mobili_2, 100);
     }
+
+    
 }
 
-if(mobili_2.destroyed = false){
+if(mobili_2.destroyed == false){
     if(mobili_3.geometry.x >= 5122) {
         PP.physics.set_velocity_x(mobili_3, -100);
     }
     else if(mobili_3.geometry.x <= 4896) {
         PP.physics.set_velocity_x(mobili_3, 100);
     }
+    console.log("monke");
 }
 
     if(mobili_4.geometry.y >= 704) {
