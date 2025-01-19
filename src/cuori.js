@@ -17,7 +17,7 @@ function collision_cuori(s, player, cuori) {
 
 function create_cuori(s,player) {
         //cuore 1
-        cuori = PP.assets.sprite.add(s, img_cuori, 512, 350, 0.5, 1); 
+        cuori = PP.assets.sprite.add(s, img_cuori, 512, 220, 0.5, 1); 
         PP.assets.sprite.animation_add_list(cuori, "cuori", [0, 1, 2, 3, 4, 5, 6, 7, 8], 5, -1);
         PP.assets.sprite.animation_play(cuori, "cuori");
 

@@ -11,10 +11,12 @@ function preload_bouncy(s) {
 
 
 function create_bouncy(s,player,bouncy) {
-    bouncy = PP.assets.image.add(s, img_bouncy, 512, 577, 0.5,1);
+
+    on_bouncy = false;
+    
+    bouncy = PP.assets.image.add(s, img_bouncy, 512, 547, 0.5,0.5);
     PP.physics.add(s,bouncy, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, bouncy, collision_bouncy);
-
 
 
 function collision_bouncy(s,player,bouncy){
@@ -26,7 +28,6 @@ function collision_bouncy(s,player,bouncy){
      {
             player.is_on_platform = true;
             on_bouncy = true;
-            
             
         } 
    
@@ -40,26 +41,23 @@ function collision_bouncy(s,player,bouncy){
 
 function update_bouncy(s){ 
 
+function bouncy_timer(s){
+    on_bouncy = false;
+}
 
+if(on_bouncy == true){
+    PP.timers.add_timer(s, 400, bouncy_timer, false);
+}
 
-
-/*
-//dovrei spostarlo nel player?      
 if (on_bouncy == true) {
                 jump_init_speed = 500; 
                 
             }
    
 
-   // il problema è che il flag non si resetta e quindi una volta che entra in true rimane in true
-
     if (on_bouncy == false) {
         jump_init_speed = 360;
-        console.log ("nu uh");
-       
     }
 
-*/
-//console.log (on_bouncy);  //di controllo per sapere quale flag sia attivo, eliminare una volta risolto
 }
 
