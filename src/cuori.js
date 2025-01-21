@@ -26,7 +26,7 @@ function create_cuori(s,player) {
 
 
         //cuore 2
-        cuori = PP.assets.sprite.add(s, img_cuori, 3680, 378, 0.5, 1); 
+        cuori = PP.assets.sprite.add(s, img_cuori, 3764, 378, 0.5, 1); 
         PP.assets.sprite.animation_add_list(cuori, "cuori", [0, 1, 2, 3, 4, 5, 6, 7, 8], 5, -1);
         PP.assets.sprite.animation_play(cuori, "cuori");
 

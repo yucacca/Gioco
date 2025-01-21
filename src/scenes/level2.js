@@ -27,10 +27,10 @@ function preload (s) {
     preload_pavimenti(s);
     preload_collapsing(s);
 
-    img_background_0 = PP.assets.image.load(s, "assets/images/sfondo_2.png");
-    img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano_2.png");
-    img_background_2 = PP.assets.image.load(s, "assets/images/secondo_piano_2.png");
-    img_background_3 = PP.assets.image.load(s, "assets/images/primo_piano_2.png");
+    img_background_0 = PP.assets.image.load(s, "assets/images/quarto_piano.png");
+    img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano.png");
+    img_background_2 = PP.assets.image.load(s, "assets/images/secondo_piano.png");
+    img_background_3 = PP.assets.image.load(s, "assets/images/primo_piano.png");
 
     img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 58,108);
     
@@ -41,16 +41,16 @@ function preload (s) {
 function create (s){
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -3000, 720, 15000, 720, 0, 1);
+    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -3000, 720, 15000, 850, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;
 
-    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -3000, 720, 15000, 720, 0, 1); 
+    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -3000, 720, 15000, 850, 0, 1); 
         //img_background_1.tile_geometry.scroll_factor_x = 1;
 
-    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -3000, 720, 15000, 720, 0, 1); 
+    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -3000, 800, 15000, 850, 0, 1); 
        // img_background_2.tile_geometry.scroll_factor_x = 1.3;
 
-    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -3000, 720, 15000, 720, 0, 1); 
+    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -3000, 900, 15000, 1500, 0, 1); 
         //img_background_3.tile_geometry.scroll_factor_x = 1.5;
 
 
@@ -59,7 +59,7 @@ function create (s){
     
     player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
-    //player = PP.assets.sprite.add(s, img_player, 4000, 400, 0.5, 1); //SPAWN PER TEST
+    //player = PP.assets.sprite.add(s, img_player, 3300, 300, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -181,7 +181,6 @@ function destroy (s) {
 
 //il problema è che quando va in game over non entra mai nel destroy quindi idk
 
-    console.log("pepee");
 }  
 
 

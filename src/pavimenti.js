@@ -91,7 +91,7 @@ function create_pavimenti(s,player,wall) {
     
 //piattaforma 5
     //pavimenti = PP.shapes.rectangle_add(s, 3360, 544, 64, 352, "0x634F0F", 1); 
-    pavimenti = PP.assets.image.add(s, img_platform_5, 3360, 544, 0.5,0.5);
+    pavimenti = PP.assets.image.add(s, img_platform_5, 3360, 580, 0.5,0.5);
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 
@@ -105,7 +105,7 @@ function create_pavimenti(s,player,wall) {
 
 //piattaforma 7
     //pavimenti = PP.shapes.rectangle_add(s, 3680, 250, 384, 32, "0x634F0F", 1); 
-    pavimenti = PP.assets.image.add(s, img_platform_7, 3680, 250, 0.5,0.5);
+    pavimenti = PP.assets.image.add(s, img_platform_7, 3680, 290, 0.5,0.5);
     PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
 

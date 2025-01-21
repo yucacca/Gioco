@@ -18,6 +18,10 @@ function create_bouncy(s,player,bouncy) {
     PP.physics.add(s,bouncy, PP.physics.type.STATIC); 
     PP.physics.add_collider_f(s, player, bouncy, collision_bouncy);
 
+    bouncy = PP.assets.image.add(s, img_bouncy, 3764, 626, 0.5,0.5);
+    PP.physics.add(s,bouncy, PP.physics.type.STATIC); 
+    PP.physics.add_collider_f(s, player, bouncy, collision_bouncy);
+
 
 function collision_bouncy(s,player,bouncy){
 

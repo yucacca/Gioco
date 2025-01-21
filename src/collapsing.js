@@ -6,11 +6,7 @@ let collapsing_5;
 
 let img_collapsing;
 
-player.is_on_collapsing_1 == false;
-player.is_on_collapsing_2 == false;
-player.is_on_collapsing_3 == false;
-player.is_on_collapsing_4 == false;
-player.is_on_collapsing_5 == false;
+
 
 
 
@@ -21,6 +17,14 @@ function preload_collapsing(s) {
 
 function create_collapsing(s,player) {
     
+
+    player.is_on_collapsing_1 == false;
+    player.is_on_collapsing_2 == false;
+    player.is_on_collapsing_3 == false;
+    player.is_on_collapsing_4 == false;
+    player.is_on_collapsing_5 == false;
+
+
 //Per shapes : s, posizione x, posizione y, spessore, altezza, colore e opacità. Per la posizione x e y prende il punto in mezzo, quindi va aggiunto metà spessore. 
 
 //collapsing 1
