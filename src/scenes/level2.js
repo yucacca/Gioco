@@ -3,6 +3,7 @@ let img_background_1;
 let img_background_2;
 let img_background_3;
 let img_player;
+let img_bridge; 
 
 let floor;
 let player;
@@ -26,6 +27,7 @@ function preload (s) {
     preload_bouncy(s);
     preload_pavimenti(s);
     preload_collapsing(s);
+    preload_fiume (s);
 
     img_background_0 = PP.assets.image.load(s, "assets/images/quarto_piano.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano.png");
@@ -33,7 +35,7 @@ function preload (s) {
     img_background_3 = PP.assets.image.load(s, "assets/images/primo_piano.png");
 
     img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 58,108);
-    
+    img_bridge = PP.assets.image.load(s, "assets/images/bridge.png");
     
 }
 
@@ -59,7 +61,7 @@ function create (s){
     
     player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
-    //player = PP.assets.sprite.add(s, img_player, 3300, 300, 0.5, 1); //SPAWN PER TEST
+    //player = PP.assets.sprite.add(s, img_player, 4000, 300, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -79,6 +81,7 @@ function create (s){
     create_cuori(s,player);
     create_rovi(s,player,rovi);
     create_bouncy(s,player,bouncy);
+    create_fiume(s,player,fiume);
 
     PP.game_state.set_variable("vite", 3);
     txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
@@ -135,8 +138,8 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
         PP.assets.destroy(mobili_3);  
         PP.assets.destroy(pavimenti_8a); 
     
-
-        pavimenti = PP.shapes.rectangle_add(s, 4640, 500, 1152, 100, "0xAB4F0F", 1); 
+        rovi_2 = PP.assets.image.add(s, img_bridge, 4640, 490, 0.5,0.5);
+        pavimenti = PP.shapes.rectangle_add(s, 4640, 490, 1152, 50, "0xAB4F0F", 0.5); 
         PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
         PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
         
