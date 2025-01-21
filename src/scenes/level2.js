@@ -28,6 +28,7 @@ function preload (s) {
     preload_pavimenti(s);
     preload_collapsing(s);
     preload_fiume (s);
+    preload_rocce(s);
 
     img_background_0 = PP.assets.image.load(s, "assets/images/quarto_piano.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano.png");
@@ -59,9 +60,9 @@ function create (s){
 
     //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
     
-    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
-    //player = PP.assets.sprite.add(s, img_player, 4000, 300, 0.5, 1); //SPAWN PER TEST
+    player = PP.assets.sprite.add(s, img_player, 2800, 300, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -82,6 +83,7 @@ function create (s){
     create_rovi(s,player,rovi);
     create_bouncy(s,player,bouncy);
     create_fiume(s,player,fiume);
+    create_rocce(s,player,pavimenti);
 
     PP.game_state.set_variable("vite", 3);
     txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
@@ -107,6 +109,7 @@ function update (s){
 
     update_mobili(s);
     update_bouncy (s);
+    update_rocce (s);
     
  
 //utilizzo anello 1
