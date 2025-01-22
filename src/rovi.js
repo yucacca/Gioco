@@ -19,7 +19,7 @@ function create_rovi(s,player,rovi) {
 
 
 //prob la sposto in gestione per comodità
-function perdi_vite(s){
+/*function perdi_vite(s){
     prev_score = PP.game_state.get_variable("vite");
     PP.game_state.set_variable("vite", prev_score-1);
     console.log("-1");
@@ -27,8 +27,10 @@ function perdi_vite(s){
     
 }
 
-
-
+function damage_timer(s){
+    on_bouncy = false;
+}
+*/
 function update_rovi(s) {
-    
+        
 }

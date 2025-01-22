@@ -17,6 +17,7 @@ let anello_2_done = false;
 let anello_3_done = false;
 
 
+
 const asset = [ "img_background_0", "img_background_1", "img_background_2", "img_background_3", "img_player"];
 
 function preload (s) {
@@ -102,11 +103,12 @@ function create (s){
 
 
 function update (s){
-let curr_score = PP.game_state.get_variable("vite")
-console.log(curr_score);
+    //let curr_score = PP.game_state.get_variable("vite");
+    //console.log(curr_score);
     /*PP.shapes.text_change(txt_score, "vite: " + PP.game_state.get_variable("vite"));
     PP.shapes.text_change(txt_score, "anello: " + PP.game_state.get_variable("anello"));
 */
+console.log (damage_imm);
 
     update_player(s, player);
 
@@ -117,7 +119,9 @@ console.log(curr_score);
     update_rocce (s,player);
     update_gui(s);
     
- 
+
+
+
 //utilizzo anello 1
     if (player.geometry.x >=1280 && player.geometry.x <=1408 && anello_1_done == false ) {
 

@@ -4,6 +4,7 @@ let img_gui_cuori_1;
 let img_gui_cuori_2;
 let img_gui_cuori_3;
 
+
 let gui;
 //let gui_cuori;
 let gui_cuori_1;
@@ -20,6 +21,9 @@ function preload_gui(s) {
 }
 
 function create_gui(s) {
+    let curr_score = PP.game_state.get_variable("vite");
+    console.log(curr_score);
+
     img_gui_cuori = img_gui_cuori_3;
 
     gui = PP.assets.image.add(s, img_gui, 0, 20, 0, 0);
@@ -37,14 +41,16 @@ function update_gui(s) {
     gui_cuori.tile_geometry.scroll_factor_y = 0;
 
     let curr_score = PP.game_state.get_variable("vite");
+    console.log(curr_score);
+   //per qualche motivo anche se legge la variabile ed è giusta entra sempre nel curr_score = 3 
     if (curr_score = 3) {
         img_gui_cuori = img_gui_cuori_3;
-        console.log("3 vite");
+       //console.log("3 vite");
     }
 
     else if (curr_score = 2) {
         img_gui_cuori = img_gui_cuori_2;
-        console.log("2 vite);
+        console.log("2 vite");
     }
 
     else if (curr_score = 1) {
