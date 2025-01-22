@@ -23,8 +23,8 @@ function perdi_vite(s){
     }
     
 
-    else if(damage_imm == true){
-        PP.timers.add_timer(s, 1000, damage_timer, false); 
+   else if(damage_imm == true){
+        PP.timers.add_timer(s, 5000, damage_timer, false); 
         console.log("ciao");
     }
 

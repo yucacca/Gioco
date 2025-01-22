@@ -71,6 +71,17 @@ function create_rocce(s,player) {
 }
 
 function update_rocce(s,player) {
+    if(damage_imm == false){
+            PP.physics.add_collider_f(s, player, rocce_3, perdi_vite);
+        console.log("siu");
+        }
+    
+        if(damage_imm == false){
+            PP.physics.add_collider_f(s, player, rocce_4, perdi_vite);
+            console.log("aaa");
+        }
+        //per qualche motivo non si toglie la collisione
+        
     if(player.geometry.x >=2336){
        rocce_1.geometry.angle -= 2; 
        PP.physics.set_velocity_x(rocce_1, -200);
@@ -101,14 +112,5 @@ function update_rocce(s,player) {
         PP.physics.set_velocity_x(rocce_7, -200);
     }
     
-    if(damage_imm == false){
-    PP.physics.add_collider_f(s, player, rocce_3, perdi_vite);
-    console.log("siu");
 
-    }
-
-    if(damage_imm == false){
-        PP.physics.add_collider_f(s, player, rocce_4, perdi_vite);
-        }
-    
 }
