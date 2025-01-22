@@ -1,19 +1,22 @@
 let img_background;
 let home;
+let freccia_dx;
+let freccia_sx;
 //let inizia_gioco;
 
 function preload (s) {
-    img_background = PP.assets.image.load(s, "assets/images/eggdog.png");
-    
+    img_background = PP.assets.image.load(s, "assets/images/tavole/T1.png");
+    freccia_dx = PP.assets.image.load(s, "assets/images/tavole/freccia_dx.png");
+    freccia_sx = PP.assets.image.load(s, "assets/images/tavole/freccia_sx.png");
 }
 
 function create (s){
     PP.assets.image.add(s, img_background, 0 , 0, 0, 0)
 
     home = PP.shapes.text_styled_add(s, 
-        100,
-        400,
-        "torna al menù",
+        1200,
+        350,
+        ">",
         75,
         "Helvetica",
         "normal",
@@ -27,12 +30,13 @@ function create (s){
        
         } 
     
-    function goto_menu(s) {
-        PP.scenes.start("menu");
-    }
+
    
 }
 
+function goto_menu(s) {
+    PP.scenes.start("menu");
+}
 
 
 
