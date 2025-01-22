@@ -44,6 +44,7 @@ function preload (s) {
 
 
 function create (s){
+damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
 //setup parallasse per sfondo
     img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -3000, 720, 15000, 850, 0, 1);
@@ -89,6 +90,8 @@ function create (s){
     create_gui (s);
 
     PP.game_state.set_variable("vite", 2);
+
+    //vecchia gui 
     /*txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;

@@ -2,32 +2,34 @@ let rocce_1;
 let rocce_2;
 let img_rocce;
 let pavimenti_rocce;
-
-
+let damage_imm;
 
 function preload_rocce(s) {
     img_rocce = PP.assets.image.load(s, "assets/images/rocce.png");
 }
 
 function create_rocce(s,player) {
-    
     pavimenti_rocce = PP.shapes.rectangle_add(s, 2816, 544, 768, 352, "0x634F0F", 0); 
     PP.physics.add(s, pavimenti_rocce, PP.physics.type.STATIC); 
 
     rocce_1 = PP.assets.image.add(s, img_rocce, 3100, 336, 0.5,0.5);
     PP.physics.add(s,rocce_1, PP.physics.type.DYNAMIC); 
-    if(damage_imm == false){
     PP.physics.add_collider(s, rocce_1, pavimenti_rocce);
+
+    if(damage_imm == false){
     PP.physics.add_collider_f(s, player, rocce_1, perdi_vite);
     }
+
     PP.physics.set_allow_gravity(rocce_1, true);    
 
     rocce_2 = PP.assets.image.add(s, img_rocce, 3000, 336, 0.5,0.5);
     PP.physics.add(s,rocce_2, PP.physics.type.DYNAMIC); 
-    if(damage_imm == false){
     PP.physics.add_collider(s, rocce_2, pavimenti_rocce);
+
+    if(damage_imm == false){
     PP.physics.add_collider_f(s, player, rocce_2, perdi_vite);
     }
+
     PP.physics.set_allow_gravity(rocce_2, true);
 
 
@@ -36,19 +38,12 @@ function create_rocce(s,player) {
     
     rocce_3 = PP.assets.image.add(s, img_rocce, 5780, 395, 0.5,0.5);
     PP.physics.add(s,rocce_3, PP.physics.type.DYNAMIC); 
-    if(damage_imm == false){
     PP.physics.add_collider(s, rocce_3, pavimenti_rocce);
-    PP.physics.add_collider_f(s, player, rocce_3, perdi_vite);
-    }
     PP.physics.set_allow_gravity(rocce_3, true);    
 
     rocce_4 = PP.assets.image.add(s, img_rocce, 5830, 395, 0.5,0.5);
     PP.physics.add(s,rocce_4, PP.physics.type.DYNAMIC); 
-    if(damage_imm == false){
     PP.physics.add_collider(s, rocce_4, pavimenti_rocce);
-    PP.physics.add_collider_f(s, player, rocce_4, perdi_vite);
-    }
-
     PP.physics.set_allow_gravity(rocce_4, true);    
  
     
@@ -106,6 +101,14 @@ function update_rocce(s,player) {
         PP.physics.set_velocity_x(rocce_7, -200);
     }
     
+    if(damage_imm == false){
+    PP.physics.add_collider_f(s, player, rocce_3, perdi_vite);
+    console.log("siu");
 
+    }
+
+    if(damage_imm == false){
+        PP.physics.add_collider_f(s, player, rocce_4, perdi_vite);
+        }
     
 }
