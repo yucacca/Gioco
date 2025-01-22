@@ -15,21 +15,11 @@ function create_rocce(s,player) {
     rocce_1 = PP.assets.image.add(s, img_rocce, 3100, 336, 0.5,0.5);
     PP.physics.add(s,rocce_1, PP.physics.type.DYNAMIC); 
     PP.physics.add_collider(s, rocce_1, pavimenti_rocce);
-
-    if(damage_imm == false){
-    PP.physics.add_collider_f(s, player, rocce_1, perdi_vite);
-    }
-
     PP.physics.set_allow_gravity(rocce_1, true);    
 
     rocce_2 = PP.assets.image.add(s, img_rocce, 3000, 336, 0.5,0.5);
     PP.physics.add(s,rocce_2, PP.physics.type.DYNAMIC); 
     PP.physics.add_collider(s, rocce_2, pavimenti_rocce);
-
-    if(damage_imm == false){
-    PP.physics.add_collider_f(s, player, rocce_2, perdi_vite);
-    }
-
     PP.physics.set_allow_gravity(rocce_2, true);
 
 
@@ -71,17 +61,30 @@ function create_rocce(s,player) {
 }
 
 function update_rocce(s,player) {
+
     if(damage_imm == false){
-            PP.physics.add_collider_f(s, player, rocce_3, perdi_vite);
-        console.log("siu");
+        PP.physics.add_overlap_f(s, player, rocce_1, perdi_vite);
+        }
+
+    if(damage_imm == false){
+        PP.physics.add_collider_f(s, player, rocce_2, perdi_vite);
+        }
+
+    if(damage_imm == false){
+        PP.physics.add_overlap_f(s, player, rocce_3, perdi_vite);
         }
     
-        if(damage_imm == false){
-            PP.physics.add_collider_f(s, player, rocce_4, perdi_vite);
-            console.log("aaa");
+    if(damage_imm == false){
+        PP.physics.add_overlap_f(s, player, rocce_4, perdi_vite);
         }
-        //per qualche motivo non si toglie la collisione
-        
+
+    if(damage_imm == false){
+            PP.physics.add_overlap_f(s, player, rocce_4, perdi_vite);
+            }
+    
+                
+
+
     if(player.geometry.x >=2336){
        rocce_1.geometry.angle -= 2; 
        PP.physics.set_velocity_x(rocce_1, -200);
