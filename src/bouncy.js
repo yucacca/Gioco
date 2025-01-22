@@ -25,8 +25,8 @@ function create_bouncy(s,player,bouncy) {
 
 function collision_bouncy(s,player,bouncy){
 
-    if( player.geometry.x >= bouncy.geometry.x - bouncy.geometry.display_width/2 &&
-        player.geometry.x <= bouncy.geometry.x + bouncy.geometry.display_width/2 &&
+    if( player.geometry.x >= bouncy.geometry.x - bouncy.geometry.display_width/2 -20 &&
+        player.geometry.x <= bouncy.geometry.x + bouncy.geometry.display_width/2 + 20 &&
         player.geometry.y == bouncy.geometry.y - bouncy.geometry.display_height/2
         )
      {
@@ -45,20 +45,19 @@ function collision_bouncy(s,player,bouncy){
 
 function update_bouncy(s){ 
 
-function bouncy_timer(s){
-    on_bouncy = false;
-}
+    function bouncy_timer(s){
+        on_bouncy = false;
+    }
 
-if(on_bouncy == true){
-    PP.timers.add_timer(s, 400, bouncy_timer, false);
-}
+    if(on_bouncy == true){
+        PP.timers.add_timer(s, 400, bouncy_timer, false);
+    }
 
-if (on_bouncy == true) {
-                jump_init_speed = 500; 
-                
-            }
+    if (on_bouncy == true) {
+        jump_init_speed = 500; 
+        console.log("stinky");
+    }
    
-
     if (on_bouncy == false) {
         jump_init_speed = 360;
     }

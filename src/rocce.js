@@ -64,24 +64,15 @@ function update_rocce(s,player) {
 
     if(damage_imm == false){
         PP.physics.add_overlap_f(s, player, rocce_1, perdi_vite);
-        }
-
-    if(damage_imm == false){
         PP.physics.add_collider_f(s, player, rocce_2, perdi_vite);
-        }
-
-    if(damage_imm == false){
         PP.physics.add_overlap_f(s, player, rocce_3, perdi_vite);
-        }
-    
-    if(damage_imm == false){
         PP.physics.add_overlap_f(s, player, rocce_4, perdi_vite);
+        PP.physics.add_overlap_f(s, player, rocce_5, perdi_vite);
+        PP.physics.add_overlap_f(s, player, rocce_6, perdi_vite);
+
         }
 
-    if(damage_imm == false){
-            PP.physics.add_overlap_f(s, player, rocce_4, perdi_vite);
-            }
-    
+
                 
 
 

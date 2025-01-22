@@ -63,9 +63,9 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
     //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
     
-    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
-    player = PP.assets.sprite.add(s, img_player, 5500, 200, 0.5, 1); //SPAWN PER TEST
+    //player = PP.assets.sprite.add(s, img_player, 5500, 200, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
