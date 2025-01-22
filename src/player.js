@@ -12,12 +12,13 @@ function preload_player(s) {
 }
 
 
-//c'è un lag che va
 function configure_player_animations(s, player) {
     PP.assets.sprite.animation_add_list(player, "walk", [0, 1, 2, 3, 2, 1], 3, -1);
     PP.assets.sprite.animation_add_list(player, "jump_up", [5, 4], 3, 0);
     PP.assets.sprite.animation_add_list(player, "jump_down", [4, 5], 3, 0);
     PP.assets.sprite.animation_add(player, "stop", 0, 0, 3, 0);
+    PP.assets.sprite.animation_add_list(player, "hurt_walk", [0, 6, 1, 6, 2, 6, 3, 6, 2, 6, 1], 6, -1);
+    PP.assets.sprite.animation_add_list(player, "hurt_stop", [0, 6], 6, -1);
 }
 
 
@@ -75,6 +76,28 @@ function update_player(s, player) {
          
     }
 
+   if(damage_imm == true){
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
+        
+            PP.physics.set_velocity_x(player, player_speed);
+            next_anim = "hurt_walk";
+            
+        }
+        else if(PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
+            
+            PP.physics.set_velocity_x(player, -player_speed);
+    
+            next_anim = "hurt_walk";   
+        } 
+        
+        else {
+    
+        PP.physics.set_velocity_x(player, 0);
+        next_anim = "hurt_stop";
+    }
+    }
+
+
     if (PP.physics.get_velocity_x(player) < 0) {
         player.geometry.flip_x = true;
     }
@@ -93,7 +116,7 @@ function update_player(s, player) {
         curr_anim = next_anim;
     }
 
-
+ 
 
     if (player.geometry.y >= 730) {
         PP.scenes.start("game_over");

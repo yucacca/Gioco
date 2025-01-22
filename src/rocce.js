@@ -76,7 +76,7 @@ function update_rocce(s,player) {
                 
 
 
-    if(player.geometry.x >=2336){
+    if(player.geometry.x >=2200){
        rocce_1.geometry.angle -= 2; 
        PP.physics.set_velocity_x(rocce_1, -200);
 

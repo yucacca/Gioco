@@ -47,24 +47,24 @@ function create (s){
 damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -3000, 720, 15000, 850, 0, 1);
+    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -4000, 720, 15000, 850, 0, 1);
         //img_background_0.tile_geometry.scroll_factor_x = 1;
 
-    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -3000, 720, 15000, 850, 0, 1); 
+    img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -4000, 720, 15000, 850, 0, 1); 
         //img_background_1.tile_geometry.scroll_factor_x = 1;
 
-    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -3000, 800, 15000, 850, 0, 1); 
+    img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -4000, 800, 15000, 850, 0, 1); 
        // img_background_2.tile_geometry.scroll_factor_x = 1.3;
 
-    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -3000, 900, 15000, 1500, 0, 1); 
+    img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -4500, 900, 18000, 1500, 0, 1); 
         //img_background_3.tile_geometry.scroll_factor_x = 1.5;
 
 
 
     //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
     
-    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
-    //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
+    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    player = PP.assets.sprite.add(s, img_player, -2276, -100, 0.5, 1);  //SPAWN GIUSTO
     //player = PP.assets.sprite.add(s, img_player, 5500, 200, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 

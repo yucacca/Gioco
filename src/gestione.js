@@ -25,7 +25,6 @@ function perdi_vite(s){
 
    else if(damage_imm == true){
         PP.timers.add_timer(s, 3000, damage_timer, false); 
-        console.log("ciao");
     }
 
     function damage_timer(s){

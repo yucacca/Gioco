@@ -60,7 +60,7 @@ function create_mobili(s,player) {
     //dà problemi per cui quando sale il gioco lo calcola come salto
 
     //mobili_5 =  PP.shapes.rectangle_add(s, -1284, 250, 128, 32, "0xA34F0F", 1);
-    mobili_5 = PP.assets.image.add(s, img_platform_13, -1284, 250, 0.5, 0.5);
+    mobili_5 = PP.assets.image.add(s, img_platform_13, -1284, 450, 0.5, 0.5);
     PP.physics.add(s, mobili_5, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(mobili_5, true);
     PP.physics.set_allow_gravity(mobili_5, false);    
@@ -99,7 +99,7 @@ if(mobili_2.destroyed == false){
     }
 }
 
-    if(mobili_4.geometry.y >= 704) {
+    if(mobili_4.geometry.y >= 650) {
         PP.physics.set_velocity_y(mobili_4, -100);
     }
     else if(mobili_4.geometry.y <= 320) {
@@ -107,10 +107,10 @@ if(mobili_2.destroyed == false){
     }
 
 
-    if(mobili_5.geometry.x >= -970) {
+    if(mobili_5.geometry.x >= -950) {
         PP.physics.set_velocity_x(mobili_5, -130);
     }
-    else if(mobili_5.geometry.x <= -1380) {
+    else if(mobili_5.geometry.x <= -1580) {
         PP.physics.set_velocity_x(mobili_5, 130);
     }
 }
