@@ -62,7 +62,7 @@ function create (s){
     
     //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     //player = PP.assets.sprite.add(s, img_player, -2276, -240, 0.5, 1);  //SPAWN GIUSTO
-    player = PP.assets.sprite.add(s, img_player, 2800, 300, 0.5, 1); //SPAWN PER TEST
+    player = PP.assets.sprite.add(s, img_player, 5500, 200, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -82,8 +82,9 @@ function create (s){
     create_cuori(s,player);
     create_rovi(s,player,rovi);
     create_bouncy(s,player,bouncy);
-    create_fiume(s,player,fiume);
     create_rocce(s,player,pavimenti);
+    create_fiume(s,player,fiume);
+
 
     PP.game_state.set_variable("vite", 3);
     txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
@@ -109,7 +110,7 @@ function update (s){
 
     update_mobili(s);
     update_bouncy (s);
-    update_rocce (s);
+    update_rocce (s,player);
     
  
 //utilizzo anello 1
@@ -162,7 +163,9 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
         if(PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
     
             PP.assets.destroy(collapsing_4); 
-            pavimenti = PP.shapes.rectangle_add(s, 6176, 656, 128, 32, "0xAB4F0F", 1); 
+            //pavimenti = PP.shapes.rectangle_add(s, 6176, 656, 128, 32, "0xAB4F0F", 1); 
+            pavimenti = PP.assets.image.add(s, img_platform_13, 6176, 656, 0.5,0.5);
+
             PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
             PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);  
 
@@ -175,7 +178,7 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
 
 
 
-    if(player.geometry.x >= 7500) {
+    if(player.geometry.x >= 7700) {
         PP.scenes.start("finale1");
         
     } 

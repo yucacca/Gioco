@@ -193,7 +193,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 //collapsing 5
-    collapsing_5= PP.assets.image.add(s, img_collapsing, 6944, 210, 0.5,0.5);
+    collapsing_5= PP.assets.image.add(s, img_collapsing, 7144, 210, 0.5,0.5);
     //collapsing_5 = PP.shapes.rectangle_add(s, 6944, 210, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_5, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(collapsing_5, true);
