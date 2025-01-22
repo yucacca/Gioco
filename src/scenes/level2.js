@@ -29,6 +29,7 @@ function preload (s) {
     preload_collapsing(s);
     preload_fiume (s);
     preload_rocce(s);
+    preload_gui (s);
 
     img_background_0 = PP.assets.image.load(s, "assets/images/quarto_piano.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano.png");
@@ -84,10 +85,10 @@ function create (s){
     create_bouncy(s,player,bouncy);
     create_rocce(s,player,pavimenti);
     create_fiume(s,player,fiume);
+    create_gui (s);
 
-
-    PP.game_state.set_variable("vite", 3);
-    txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
+    PP.game_state.set_variable("vite", 2);
+    /*txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
 
@@ -95,14 +96,17 @@ function create (s){
     txt_score = PP.shapes.text_styled_add(s, 10, 30, "anello: 0", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
+
+    */
 }
 
 
 function update (s){
-
-    PP.shapes.text_change(txt_score, "vite: " + PP.game_state.get_variable("vite"));
+let curr_score = PP.game_state.get_variable("vite")
+console.log(curr_score);
+    /*PP.shapes.text_change(txt_score, "vite: " + PP.game_state.get_variable("vite"));
     PP.shapes.text_change(txt_score, "anello: " + PP.game_state.get_variable("anello"));
-
+*/
 
     update_player(s, player);
 
@@ -111,6 +115,7 @@ function update (s){
     update_mobili(s);
     update_bouncy (s);
     update_rocce (s,player);
+    update_gui(s);
     
  
 //utilizzo anello 1

@@ -10,7 +10,7 @@ function preload_rocce(s) {
 
 function create_rocce(s,player) {
 
-    pavimenti_rocce = PP.shapes.rectangle_add(s, 2816, 544, 768, 352, "0x634F0F", 0.2); 
+    pavimenti_rocce = PP.shapes.rectangle_add(s, 2816, 544, 768, 352, "0x634F0F", 0); 
     PP.physics.add(s, pavimenti_rocce, PP.physics.type.STATIC); 
 
     rocce_1 = PP.assets.image.add(s, img_rocce, 3100, 336, 0.5,0.5);
@@ -26,7 +26,7 @@ function create_rocce(s,player) {
     PP.physics.set_allow_gravity(rocce_2, true);
 
 
-    pavimenti_rocce = PP.shapes.rectangle_add(s, 5536, 592, 640, 256, "0x634F0F", 0.2); 
+    pavimenti_rocce = PP.shapes.rectangle_add(s, 5536, 592, 640, 256, "0x634F0F", 0); 
     PP.physics.add(s, pavimenti_rocce, PP.physics.type.STATIC); 
     
     rocce_3 = PP.assets.image.add(s, img_rocce, 5780, 395, 0.5,0.5);
@@ -42,7 +42,7 @@ function create_rocce(s,player) {
     PP.physics.set_allow_gravity(rocce_4, true);    
  
     
-    pavimenti_rocce = PP.shapes.rectangle_add(s, 7648, 528, 2048, 384, "0x634F0F", 0.2); 
+    pavimenti_rocce = PP.shapes.rectangle_add(s, 7648, 528, 2048, 384, "0x634F0F", 0); 
     PP.physics.add(s, pavimenti_rocce, PP.physics.type.STATIC); 
     
     rocce_5 = PP.assets.image.add(s, img_rocce, 7480, 100, 0.5,0.5);
