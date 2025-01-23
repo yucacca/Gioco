@@ -27,7 +27,6 @@ function configure_player_animations(s, player) {
 
 
 function update_player(s, player) {
-
     let next_anim = curr_anim; 
 
     if(PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {

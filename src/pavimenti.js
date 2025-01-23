@@ -36,7 +36,7 @@ function preload_pavimenti(s) {
 function collision_pavimenti(s, player, pavimenti) {
     if( player.geometry.x >= pavimenti.geometry.x - pavimenti.geometry.display_width &&
         player.geometry.x <= pavimenti.geometry.x + pavimenti.geometry.display_width &&
-        player.geometry.y == pavimenti.geometry.y - pavimenti.geometry.display_height/2
+        player.geometry.y == pavimenti.geometry.y - pavimenti.geometry.display_height/2 + 15
         ) {
             player.is_on_platform = true;
             

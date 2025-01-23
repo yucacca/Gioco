@@ -27,7 +27,7 @@ function collision_bouncy(s,player,bouncy){
 
     if( player.geometry.x >= bouncy.geometry.x - bouncy.geometry.display_width/2 -20 &&
         player.geometry.x <= bouncy.geometry.x + bouncy.geometry.display_width/2 + 20 &&
-        player.geometry.y == bouncy.geometry.y - bouncy.geometry.display_height/2
+        player.geometry.y == bouncy.geometry.y - bouncy.geometry.display_height/2 + 15
         )
      {
             player.is_on_platform = true;

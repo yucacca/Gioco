@@ -4,7 +4,7 @@ let config={
     canvas_height: 720,
     canvas_id: "game_area",
     background_color: 0x00FF00,
-    debug_mode: false, 
+    debug_mode: true, 
     gravity_value: 430,
 };
 

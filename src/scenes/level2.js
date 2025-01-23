@@ -61,13 +61,18 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
 
 
-    //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
+
     
-    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     //player = PP.assets.sprite.add(s, img_player, -2276, -100, 0.5, 1);  //SPAWN GIUSTO
-    //player = PP.assets.sprite.add(s, img_player, 7500, 100, 0.5, 1); //SPAWN PER TEST
+    player = PP.assets.sprite.add(s, img_player, 7500, 100, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
+    PP.physics.set_collision_rectangle(player, 58, 108, 0, -15)
+
+    let giocatore = PP.layers.create(s);
+    PP.layers.add_to_layer(giocatore, player);
+    PP.layers.set_z_index(giocatore, 1);
 
     configure_player_animations(s, player); 
 
@@ -193,7 +198,7 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
     if(player.geometry.x >= 7700) {
 
 
-            PP.scenes.start("finale1");
+            PP.scenes.start("finale");
 
     
 

@@ -38,7 +38,7 @@ function create_collapsing(s,player) {
 function collision_collapsing_1(s, player, collapsing_1) {
     if( player.geometry.x >= collapsing_1.geometry.x - collapsing_1.geometry.display_width &&
         player.geometry.x <= collapsing_1.geometry.x + collapsing_1.geometry.display_width &&
-        player.geometry.y == collapsing_1.geometry.y - collapsing_1.geometry.display_height/2) {
+        player.geometry.y == collapsing_1.geometry.y - collapsing_1.geometry.display_height/2 + 15) {
             player.is_on_platform = true;
             player.is_on_collapsing_1 = true;
             
@@ -79,7 +79,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
     function collision_collapsing_2(s, player, collapsing_2) {
         if( player.geometry.x >= collapsing_2.geometry.x - collapsing_2.geometry.display_width &&
             player.geometry.x <= collapsing_2.geometry.x + collapsing_2.geometry.display_width &&
-            player.geometry.y == collapsing_2.geometry.y - collapsing_2.geometry.display_height/2) {
+            player.geometry.y == collapsing_2.geometry.y - collapsing_2.geometry.display_height/2 + 15) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_2 = true;
                 
@@ -123,7 +123,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
     function collision_collapsing_3(s, player, collapsing_3) {
         if( player.geometry.x >= collapsing_3.geometry.x - collapsing_3.geometry.display_width &&
             player.geometry.x <= collapsing_3.geometry.x + collapsing_3.geometry.display_width &&
-            player.geometry.y == collapsing_3.geometry.y - collapsing_3.geometry.display_height/2) {
+            player.geometry.y == collapsing_3.geometry.y - collapsing_3.geometry.display_height/2 + 15) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_3 = true;
                 
@@ -163,7 +163,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
         function collision_collapsing_4(s, player, collapsing_4) {
         if( player.geometry.x >= collapsing_4.geometry.x - collapsing_4.geometry.display_width &&
             player.geometry.x <= collapsing_4.geometry.x + collapsing_4.geometry.display_width &&
-            player.geometry.y == collapsing_4.geometry.y - collapsing_4.geometry.display_height/2) {
+            player.geometry.y == collapsing_4.geometry.y - collapsing_4.geometry.display_height/2 + 15) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_4 = true;
                 
@@ -203,7 +203,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
     function collision_collapsing_5(s, player, collapsing_5) {
         if( player.geometry.x >= collapsing_5.geometry.x - collapsing_5.geometry.display_width &&
             player.geometry.x <= collapsing_5.geometry.x + collapsing_5.geometry.display_width &&
-            player.geometry.y == collapsing_5.geometry.y - collapsing_5.geometry.display_height/2) {
+            player.geometry.y == collapsing_5.geometry.y - collapsing_5.geometry.display_height/2 + 15) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_5 = true;
                 
@@ -233,10 +233,4 @@ function collision_collapsing_1(s, player, collapsing_1) {
 }
 
 
-/*function move_collapsing(s) {   
-    PP.physics.add(s, collapsing, PP.physics.type.DYNAMIC); 
-    PP.physics.set_allow_gravity(collapsing, true);  
-    PP.physics.set_velocity_y(collapsing, 100);
-    console.log("cade");
-}  */
 

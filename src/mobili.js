@@ -14,7 +14,7 @@ function preload_mobili(s) {
 function collision_mobili(s, player, mobili) {
     if( player.geometry.x >= mobili.geometry.x - mobili.geometry.display_width &&
         player.geometry.x <= mobili.geometry.x + mobili.geometry.display_width &&
-        player.geometry.y == mobili.geometry.y - mobili.geometry.display_height/2
+        player.geometry.y == mobili.geometry.y - mobili.geometry.display_height/2 + 15
         ) {
             player.is_on_platform = true;
     }

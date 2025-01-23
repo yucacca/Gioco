@@ -2,18 +2,21 @@ let img_finale_1;
 let img_finale_2;
 let home;
 
+let tasto_menu;
+let img_tasto_menu;
+
 function preload (s) {
 
-    img_finale_1 = PP.assets.image.load(s, "assets/images/eggdog.png");
-    img_finale_2 = PP.assets.image.load(s, "assets/images/copertina.png");
-
+    img_finale_1 = PP.assets.image.load(s, "assets/images/finalep.png");
+    img_finale_2 = PP.assets.image.load(s, "assets/images/finalen.png");
+    img_tasto_menu = PP.assets.image.load(s, "assets/images/tasto_menu.png");
 }
 
 function create (s){
     let prev_anello = PP.game_state.get_variable("anello");
 console.log(prev_anello);
     if(prev_anello <=1){
-        PP.assets.image.add(s, img_finale_2, 0 , 0 , 0, 0);
+        PP.assets.image.add(s, img_finale_1, 0 , 0 , 0, 0);
         console.log("uwwu");
     }
 
@@ -24,32 +27,10 @@ console.log(prev_anello);
 
 
 
-    PP.shapes.text_styled_add(s, 
-        100,
-        250,
-        "yippie",
-        75,
-        "Helvetica",
-        "normal",
-        "0xFFFFFF",
-        null,
-        0,
-        0.5); 
-
-
-    home = PP.shapes.text_styled_add(s, 
-        100,
-        400,
-        "torna al menu",
-        75,
-        "Helvetica",
-        "normal",
-        "0xFFFFFF",
-        null,
-        0,
-        0.5); 
     
-        //interazione con il tasto con funzione apposita per andare alla storia (idem per i successivi)
+
+    home = PP.assets.image.add(s,img_tasto_menu, 120, 100, 0.5, 0.5);
+
         if (PP.interactive.mouse.add(home, "pointerdown",goto_menu)){
        
         } 
@@ -69,4 +50,4 @@ function destroy (s)  {
 
 }
 
-PP.scenes.add ("finale1", preload, create, update, destroy)
+PP.scenes.add ("finale", preload, create, update, destroy)
