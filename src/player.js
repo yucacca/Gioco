@@ -19,11 +19,15 @@ function configure_player_animations(s, player) {
     PP.assets.sprite.animation_add(player, "stop", 0, 0, 3, 0);
     PP.assets.sprite.animation_add_list(player, "hurt_walk", [0, 6, 1, 6, 2, 6, 3, 6, 2, 6, 1], 6, -1);
     PP.assets.sprite.animation_add_list(player, "hurt_stop", [0, 6], 6, -1);
+    PP.assets.sprite.animation_add_list(player, "hurt_jump_up", [5, 6, 4, 6], 6, -1);
+    PP.assets.sprite.animation_add_list(player, "hurt_jump_down", [4, 6, 5, 6], 6, -1);
+
 }
 
 
 
 function update_player(s, player) {
+console.log(curr_anim);
 
     let next_anim = curr_anim; 
 
@@ -47,35 +51,6 @@ function update_player(s, player) {
 }
 
 
-    if(player.is_on_platform) {
-
-        if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
-        
-            PP.physics.set_velocity_y(player, -jump_init_speed);
-            next_anim = "jump_up";
-        }
-        /*else {
-            player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
-                                    // si trova sulla piattaforma
-        }*/
-    }
-
-
-    // Le animazioni del salto vengono gestite in base alla velocita'
-    // verticale
-
-    if(PP.physics.get_velocity_y(player) < 0 ) {
-       
-        next_anim = "jump_up";
-
-    }
-
-    else  if (PP.physics.get_velocity_y(player) > 0) {
-
-             next_anim = "jump_down";
-         
-    }
-
    if(damage_imm == true){
         if(PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
         
@@ -95,6 +70,47 @@ function update_player(s, player) {
         PP.physics.set_velocity_x(player, 0);
         next_anim = "hurt_stop";
     }
+    }
+
+
+    if(player.is_on_platform) {
+
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+        
+            PP.physics.set_velocity_y(player, -jump_init_speed);   
+
+            if(damage_imm==false){
+            next_anim = "jump_up";
+            console.log("caca");
+            }
+            else if (damage_imm == true) {
+                next_anim = "hurt_jump_up"
+            }
+        }
+
+    }
+
+
+    if(PP.physics.get_velocity_y(player) < 0 ) {
+       
+        if(damage_imm==false){
+        next_anim = "jump_up"; 
+    
+        }
+
+        else if (damage_imm == true) {
+            next_anim = "hurt_jump_up"
+        }
+
+    }
+
+    else  if (PP.physics.get_velocity_y(player) > 0) {
+        if(damage_imm==false){
+             next_anim = "jump_down";
+        }
+        else if(damage_imm == true) {
+            next_anim = "hurt_jump_down";
+        }
     }
 
 
