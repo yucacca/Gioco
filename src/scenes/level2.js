@@ -11,6 +11,7 @@ let img_cartello_dx;
 let img_cartello_sx;
 let img_cartello_barra;
 let img_cartello_f;
+let img_topo;
 
 
 let floor;
@@ -26,7 +27,7 @@ let cartello_dx;
 let cartello_sx;
 let cartello_barra;
 let cartello_f;
-
+let topo;
 
 let anello_1_done = false;
 let anello_2_done = false;
@@ -58,7 +59,7 @@ function preload (s) {
     img_cartello_sx = PP.assets.image.load(s, "assets/images/sx.png");
     img_cartello_barra = PP.assets.image.load(s, "assets/images/barra.png");
     img_cartello_f = PP.assets.image.load(s, "assets/images/f.png");
-
+    img_topo = PP.assets.image.load(s, "assets/images/topo.png");
 
 
     img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 58,108);
@@ -81,9 +82,12 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
     cartello_sx = PP.assets.image.add(s, img_cartello_sx, -2350, 80, 1,1);
     cartello_barra = PP.assets.image.add(s, img_cartello_barra, -1580, 80, 1,1);
     cartello_f = PP.assets.image.add(s, img_cartello_f, 1344, 500, 0.5,1);
+    topo = PP.assets.image.add(s, img_topo, -2680, 80, 0.5,1);
 
-    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
-    //player = PP.assets.sprite.add(s, img_player, -2376, 83, 0.5, 1);  //SPAWN GIUSTO
+
+
+    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    player = PP.assets.sprite.add(s, img_player, -2376, 83, 0.5, 1);  //SPAWN GIUSTO
     //player = PP.assets.sprite.add(s, img_player, 7500, 100, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
