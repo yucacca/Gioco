@@ -1,7 +1,6 @@
 let bouncy;
 let img_bouncy;
 let on_bouncy = false;
-//chiedere perché tutte queste vero / falso mi funzionino SOLO se sono con un uguale e basta :3
 
 function preload_bouncy(s) {
     img_bouncy = PP.assets.image.load(s, "assets/images/F0.png");
@@ -23,23 +22,21 @@ function create_bouncy(s,player,bouncy) {
     PP.physics.add_collider_f(s, player, bouncy, collision_bouncy);
 
 
-function collision_bouncy(s,player,bouncy){
+    function collision_bouncy(s,player,bouncy){
 
-    if( player.geometry.x >= bouncy.geometry.x - bouncy.geometry.display_width/2 -20 &&
-        player.geometry.x <= bouncy.geometry.x + bouncy.geometry.display_width/2 + 20 &&
-        player.geometry.y == bouncy.geometry.y - bouncy.geometry.display_height/2 + 15
-        )
-     {
-            player.is_on_platform = true;
-            on_bouncy = true;
+        if( player.geometry.x >= bouncy.geometry.x - bouncy.geometry.display_width/2 -20 &&
+            player.geometry.x <= bouncy.geometry.x + bouncy.geometry.display_width/2 + 20 &&
+            player.geometry.y == bouncy.geometry.y - bouncy.geometry.display_height/2 + 15){
             
-        } 
+                player.is_on_platform = true;
+                on_bouncy = true;    
+            } 
    
-    else {
-        on_bouncy = false;
-    } 
+        else {
+            on_bouncy = false;
+        } 
 
-}
+    }
 }
 
 

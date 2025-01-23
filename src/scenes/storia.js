@@ -19,9 +19,6 @@ let testo3;
 
 let change_scene = true;
 
-//const tavole = [t1, testo1, t2, testo2, t3, testo3];
-//const tavole = ["assets/images/tavole/T1.png", "assets/images/tavole/testo1.png", "assets/images/tavole/T2.png","assets/images/tavole/testo2.png", "assets/images/tavole/T3.png", "assets/images/tavole/testo3.png"];
-//let inizia_gioco;
 
 function preload (s) {
     t1 = PP.assets.image.load(s, "assets/images/tavole/T1.png");    
@@ -51,14 +48,15 @@ function create (s){
         PP.layers.add_to_layer(frecce, freccia_dx);
         PP.layers.add_to_layer(frecce, freccia_sx);
         PP.layers.set_z_index(frecce, 1);
-
     
 }
 
 
 
 function goto_menu(s) {
+
     PP.scenes.start("menu");
+
 }
 
 
@@ -73,31 +71,26 @@ function update (s){
         change_scene = true;
     }
 
-
-
-
-
     if (PP.interactive.mouse.add(freccia_dx, "pointerdown",piu_bg)){
         
         } 
  
         function piu_bg(s){
             if(change_scene == true){    
-            change_scene = false;
+                change_scene = false;
     
-            if(curr_img_n <5){
-             curr_img_n++; 
-            }
-        }        
+                    if(curr_img_n <5){
+                        curr_img_n++; 
+                }
+            }        
    
 
-    if(change_scene == false){
-            PP.timers.add_timer(s, 500, scene_timer, false); 
+            if(change_scene == false){
+                PP.timers.add_timer(s, 500, scene_timer, false); 
             
-        }
-  
-
+            }
     }   
+
 
     if (PP.interactive.mouse.add(freccia_sx, "pointerdown",meno_bg)){
        
@@ -106,26 +99,26 @@ function update (s){
     function meno_bg(s){
         if(change_scene == true){    
             change_scene = false;   
-            if(curr_img_n > 0){
-            curr_img_n--; 
-            }
+                if(curr_img_n > 0){
+                    curr_img_n--; 
+                }
         }
+
         if(change_scene == false){
-        PP.timers.add_timer(s, 500, scene_timer, false); 
+            PP.timers.add_timer(s, 500, scene_timer, false); 
         }
     }
 
-    if (curr_img_n == 5) {
-        gioca = PP.assets.image.add(s,img_tasto_gioca,620, 650, 0.5, 0.5);
-        if (PP.interactive.mouse.add(gioca, "pointerdown",start_game)){
+        if (curr_img_n == 5) {
+            gioca = PP.assets.image.add(s,img_tasto_gioca,620, 650, 0.5, 0.5);
+                if (PP.interactive.mouse.add(gioca, "pointerdown",start_game)){
        
-        }     
-    }
-
-
-
+                }     
+        }
 
 }
+
+
 function destroy (s)  {
 
 }

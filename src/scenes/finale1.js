@@ -14,26 +14,20 @@ function preload (s) {
 
 function create (s){
     let prev_anello = PP.game_state.get_variable("anello");
-console.log(prev_anello);
+
     if(prev_anello <=1){
         PP.assets.image.add(s, img_finale_1, 0 , 0 , 0, 0);
-        console.log("uwwu");
     }
 
     else if(prev_anello>=2){
         PP.assets.image.add(s, img_finale_2, 0 , 0 , 0, 0);
-        console.log("owo");
     }
-
-
-
-    
 
     home = PP.assets.image.add(s,img_tasto_menu, 120, 100, 0.5, 0.5);
 
-        if (PP.interactive.mouse.add(home, "pointerdown",goto_menu)){
-       
-        } 
+    if (PP.interactive.mouse.add(home, "pointerdown",goto_menu)){
+        
+    } 
     
     function goto_menu(s) {
         PP.scenes.start("menu");

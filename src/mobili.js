@@ -14,8 +14,7 @@ function preload_mobili(s) {
 function collision_mobili(s, player, mobili) {
     if( player.geometry.x >= mobili.geometry.x - mobili.geometry.display_width &&
         player.geometry.x <= mobili.geometry.x + mobili.geometry.display_width &&
-        player.geometry.y == mobili.geometry.y - mobili.geometry.display_height/2 + 15
-        ) {
+        player.geometry.y == mobili.geometry.y - mobili.geometry.display_height/2 + 15) {
             player.is_on_platform = true;
     }
 }
@@ -23,8 +22,6 @@ function collision_mobili(s, player, mobili) {
 
 function create_mobili(s,player) {
     
-
-    //mobili_1 =  PP.shapes.rectangle_add(s, 1600, 382, 128, 32, "0xA34F0F", 1);
     mobili_1 = PP.assets.image.add(s, img_platform_13, 1600, 382, 0.5, 0.5);
     PP.physics.add(s, mobili_1, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(mobili_1, true);
@@ -32,7 +29,6 @@ function create_mobili(s,player) {
     PP.physics.add_collider_f(s, player, mobili_1, collision_mobili);
     PP.physics.set_velocity_x(mobili_1, 130);
 
-    //mobili_2 =  PP.shapes.rectangle_add(s, 4192, 424, 128, 32, "0xA34F0F", 1);
     mobili_2 = PP.assets.image.add(s, img_platform_13, 4192, 424, 0.5, 0.5);
     PP.physics.add(s, mobili_2, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(mobili_2, true);
@@ -42,7 +38,6 @@ function create_mobili(s,player) {
     
     mobili_2.destroyed = false;
 
-    //mobili_3 =  PP.shapes.rectangle_add(s, 4896, 424, 128, 32, "0xA34F0F", 1);
     mobili_3 = PP.assets.image.add(s, img_platform_13, 4896, 424, 0.5, 0.5);
     PP.physics.add(s, mobili_3, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(mobili_3, true);
@@ -50,16 +45,13 @@ function create_mobili(s,player) {
     PP.physics.add_collider_f(s, player, mobili_3, collision_mobili);
     PP.physics.set_velocity_x(mobili_3, 100);
 
-    //mobili_4 =  PP.shapes.rectangle_add(s, 6432, 704, 128, 32, "0xA34F0F", 1);
     mobili_4 = PP.assets.image.add(s, img_platform_13, 6432, 704, 0.5,0.5);
     PP.physics.add(s, mobili_4, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(mobili_4, true);
     PP.physics.set_allow_gravity(mobili_4, false);    
     PP.physics.add_collider_f(s, player, mobili_4, collision_mobili);
     PP.physics.set_velocity_y(mobili_4, 100);
-    //dà problemi per cui quando sale il gioco lo calcola come salto
 
-    //mobili_5 =  PP.shapes.rectangle_add(s, -1284, 250, 128, 32, "0xA34F0F", 1);
     mobili_5 = PP.assets.image.add(s, img_platform_13, -1284, 450, 0.5, 0.5);
     PP.physics.add(s, mobili_5, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(mobili_5, true);

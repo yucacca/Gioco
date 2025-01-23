@@ -5,7 +5,6 @@ function preload_cuori(s) {
     img_cuori = PP.assets.sprite.load_spritesheet(s,"assets/images/cuori.png", 32, 32);
 }
 
-//prob la sposto in gestione per comodità, per avere tutte le funzioni che interagiscono con le vite in un postio solo
 function collision_cuori(s, player, cuori) {
 
     PP.assets.destroy(cuori);
@@ -38,7 +37,6 @@ function create_cuori(s,player) {
 
         //cuore 3
         cuori = PP.assets.sprite.add(s, img_cuori, -1604, 400, 0.5, 1); 
-        //PP.assets.sprite.animation_add_list(cuori, "cuori", [0, 2, 4, 6, 8, 10, 12, 14, 16, 1], 5, -1);
         PP.assets.sprite.animation_add_list(cuori, "cuori", [0, 1, 2, 3, 4, 5, 6, 7, 8], 5, -1);
         PP.assets.sprite.animation_play(cuori, "cuori");
 

@@ -29,47 +29,41 @@ function create_collapsing(s,player) {
 
 //collapsing 1
     collapsing_1= PP.assets.image.add(s, img_collapsing, 832, 480, 0.5,0.5);
-    //collapsing_1 = PP.shapes.rectangle_add(s, 832, 480, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_1, PP.physics.type.DYNAMIC);     
     PP.physics.set_immovable(collapsing_1, true);
     PP.physics.set_allow_gravity(collapsing_1, false);    
     PP.physics.add_collider_f(s, player, collapsing_1, collision_collapsing_1);
 
-function collision_collapsing_1(s, player, collapsing_1) {
-    if( player.geometry.x >= collapsing_1.geometry.x - collapsing_1.geometry.display_width &&
-        player.geometry.x <= collapsing_1.geometry.x + collapsing_1.geometry.display_width &&
-        player.geometry.y == collapsing_1.geometry.y - collapsing_1.geometry.display_height/2 + 15) {
-            player.is_on_platform = true;
-            player.is_on_collapsing_1 = true;
-            
-            
-    }
+    function collision_collapsing_1(s, player, collapsing_1) {
+        if( player.geometry.x >= collapsing_1.geometry.x - collapsing_1.geometry.display_width &&
+            player.geometry.x <= collapsing_1.geometry.x + collapsing_1.geometry.display_width &&
+            player.geometry.y == collapsing_1.geometry.y - collapsing_1.geometry.display_height/2 + 15) {
+                player.is_on_platform = true;
+                player.is_on_collapsing_1 = true;
+               
+                }
 
-    function move_collapsing_1(s) {   
-        PP.physics.add(s, collapsing_1, PP.physics.type.DYNAMIC); 
-        PP.physics.set_allow_gravity(collapsing_1, true);  
-        PP.physics.set_velocity_y(collapsing_1, 100);
+        function move_collapsing_1(s) {   
+            PP.physics.add(s, collapsing_1, PP.physics.type.DYNAMIC); 
+            PP.physics.set_allow_gravity(collapsing_1, true);  
+            PP.physics.set_velocity_y(collapsing_1, 100);
         
-    } 
+        } 
 
-    if (player.is_on_collapsing_1) {
+        if (player.is_on_collapsing_1) {
 
-        PP.timers.add_timer(s, 250, move_collapsing_1, false);
-        
-            
+            PP.timers.add_timer(s, 250, move_collapsing_1, false); 
         
         }
 
-    else {
+        else {
             player.is_on_collapsing_1 == false;
-        
-        
+    
         }
 }
 
 //collapsing 2
     collapsing_2= PP.assets.image.add(s, img_collapsing, 2752, 238, 0.5,0.5);
-    //collapsing_2 = PP.shapes.rectangle_add(s, 2752, 238, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_2, true);
     PP.physics.set_allow_gravity(collapsing_2, false);    
@@ -83,25 +77,22 @@ function collision_collapsing_1(s, player, collapsing_1) {
                 player.is_on_platform = true;
                 player.is_on_collapsing_2 = true;
                 
-                
-        }
+                }
     
-        function move_collapsing_2(s) {   
-            PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
-            PP.physics.set_allow_gravity(collapsing_2, true);  
-            PP.physics.set_velocity_y(collapsing_2, 100);
+            function move_collapsing_2(s) {   
+                PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
+                PP.physics.set_allow_gravity(collapsing_2, true);  
+                PP.physics.set_velocity_y(collapsing_2, 100);
             
-        } 
+            } 
     
-        if (player.is_on_collapsing_2 == true) {
+            if (player.is_on_collapsing_2 == true) {
     
-            PP.timers.add_timer(s, 250, move_collapsing_2, false);
-            
-            
+                PP.timers.add_timer(s, 250, move_collapsing_2, false);
             
             }
     
-        else {
+            else {
                 player.is_on_collapsing_2 = false;
             
             }
@@ -109,12 +100,8 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 
 
-//qui per ciascuna piattaforma va copiato da collision collapsing a else (compreso) e cambiati tutti i numeri in quelli della piattaforma
-
-
 //collapsing 3
     collapsing_3= PP.assets.image.add(s, img_collapsing, 3008, 206, 0.5,0.5);
-    //collapsing_3 = PP.shapes.rectangle_add(s, 3008, 206, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_3, true);
     PP.physics.set_allow_gravity(collapsing_3, false);    
@@ -142,7 +129,6 @@ function collision_collapsing_1(s, player, collapsing_1) {
             PP.timers.add_timer(s, 250, move_collapsing_3, false);
             
             
-            
             }
     
         else {
@@ -154,13 +140,12 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 //collapsing 4
     collapsing_4= PP.assets.image.add(s, img_collapsing, 6176, 656, 0.5,0.5);
-    //collapsing_4 = PP.shapes.rectangle_add(s, 6176, 656, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_4, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(collapsing_4, true);
     PP.physics.set_allow_gravity(collapsing_4, false);     
     PP.physics.add_collider_f(s, player, collapsing_4, collision_collapsing_4);
 
-        function collision_collapsing_4(s, player, collapsing_4) {
+    function collision_collapsing_4(s, player, collapsing_4) {
         if( player.geometry.x >= collapsing_4.geometry.x - collapsing_4.geometry.display_width &&
             player.geometry.x <= collapsing_4.geometry.x + collapsing_4.geometry.display_width &&
             player.geometry.y == collapsing_4.geometry.y - collapsing_4.geometry.display_height/2 + 15) {
@@ -186,7 +171,7 @@ function collision_collapsing_1(s, player, collapsing_1) {
             }
     
         else {
-                player.is_on_collapsing_4 = false;
+            player.is_on_collapsing_4 = false;
             
             }
     }
@@ -194,7 +179,6 @@ function collision_collapsing_1(s, player, collapsing_1) {
 
 //collapsing 5
     collapsing_5= PP.assets.image.add(s, img_collapsing, 7144, 210, 0.5,0.5);
-    //collapsing_5 = PP.shapes.rectangle_add(s, 6944, 210, 128, 32, "0x634F4F", 1); 
     PP.physics.add(s, collapsing_5, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(collapsing_5, true);
     PP.physics.set_allow_gravity(collapsing_5, false);     
@@ -221,12 +205,11 @@ function collision_collapsing_1(s, player, collapsing_1) {
     
             PP.timers.add_timer(s, 250, move_collapsing_5, false);
             
-        
             
             }
     
         else {
-                player.is_on_collapsing_5 = false;
+            player.is_on_collapsing_5 = false;
             
             }
     }

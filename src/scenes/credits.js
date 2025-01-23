@@ -18,9 +18,9 @@ function create (s){
        
         } 
     
-    function goto_menu(s) {
-        PP.scenes.start("menu");
-    }
+        function goto_menu(s) {
+            PP.scenes.start("menu");
+        }
    
    
 }

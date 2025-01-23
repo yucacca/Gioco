@@ -9,30 +9,18 @@ function preload (s) {
 
 
 function create (s){
+
      PP.assets.image.add(s, img_background, 0 , 0, 0, 0)
      
-
-     /* PP.shapes.text_styled_add(s, 
-        PP.game.config.canvas_width / 2,
-        200,
-        "L'ANELLO MAGICO",
-        100,
-        "Helvetica",
-        "normal",
-        "0xFFFFFF",
-        null,
-        0.5,
-        0.5); */
-
     storia = PP.shapes.rectangle_add(s, 1100, 340, 170, 70, "0x634F0F", 0); 
         //interazione con il tasto con funzione apposita per andare alla storia (idem per i successivi)
         if (PP.interactive.mouse.add(storia, "pointerdown",goto_storia)){
        
         } 
     
-    function goto_storia(s) {
-        PP.scenes.start("storia");
-    }
+        function goto_storia(s) {
+            PP.scenes.start("storia");
+        }
  
     
    gioca = PP.shapes.rectangle_add(s, 1100, 430, 170, 70, "0xE34F0F", 0); 
@@ -48,10 +36,11 @@ function create (s){
         } 
     
     function goto_credits(s) {
+
         PP.scenes.start("credits");
+
     }
    
-
 
 }
 

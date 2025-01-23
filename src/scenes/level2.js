@@ -39,7 +39,6 @@ const asset = [ "img_background_0", "img_background_1", "img_background_2", "img
 
 function preload (s) {
     preload_player(s);
-    preload_trap (s);
     preload_cuori (s);
     preload_rovi (s);
     preload_bouncy(s);
@@ -125,37 +124,17 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
     create_gui (s);
 
-    PP.game_state.set_variable("vite", 3); //rimetto a 1
+    PP.game_state.set_variable("vite", 1);
     PP.game_state.set_variable("anello", 0);
 
-    //vecchia gui 
-    /*txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
-    txt_score.tile_geometry.scroll_factor_x = 0;
-    txt_score.tile_geometry.scroll_factor_y = 0;
-
-    
-    txt_score = PP.shapes.text_styled_add(s, 10, 30, "anello: 0", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
-    txt_score.tile_geometry.scroll_factor_x = 0;
-    txt_score.tile_geometry.scroll_factor_y = 0;
-
-    */
-
-
-
-  
 }
 
 
 function update (s){
-    //let curr_score = PP.game_state.get_variable("vite");
-    //console.log(curr_score);
-    /*PP.shapes.text_change(txt_score, "vite: " + PP.game_state.get_variable("vite"));
-    PP.shapes.text_change(txt_score, "anello: " + PP.game_state.get_variable("anello"));
-*/
 
     update_player(s, player);
 
-        PP.camera.start_follow(s, player, -50, 100);
+    PP.camera.start_follow(s, player, -50, 100);
 
     update_mobili(s);
     update_bouncy (s);
@@ -185,26 +164,26 @@ function update (s){
     }
 
 //utilizzo anello 2
-if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == false ) {
+    if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == false ) {
 
-    if(PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
+        if(PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
     
-        mobili_2.destroyed = true;
+            mobili_2.destroyed = true;
 
-        PP.assets.destroy(mobili_2);  
-        PP.assets.destroy(mobili_3);  
-        PP.assets.destroy(pavimenti_8a); 
+            PP.assets.destroy(mobili_2);  
+            PP.assets.destroy(mobili_3);  
+            PP.assets.destroy(pavimenti_8a); 
     
-        rovi_2 = PP.assets.image.add(s, img_bridge, 4640, 490, 0.5,0.5);
-        pavimenti = PP.shapes.rectangle_add(s, 4640, 490, 1152, 50, "0xAB4F0F", 0.5); 
-        PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
-        PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
+            rovi_2 = PP.assets.image.add(s, img_bridge, 4640, 490, 0.5,0.5);
+            pavimenti = PP.shapes.rectangle_add(s, 4640, 490, 1152, 50, "0xAB4F0F", 0.5); 
+            PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
+            PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
         
 
-        let prev_anello = PP.game_state.get_variable("anello");
-        PP.game_state.set_variable("anello", prev_anello+1);
+            let prev_anello = PP.game_state.get_variable("anello");
+            PP.game_state.set_variable("anello", prev_anello+1);
 
-        anello_2_done = true;
+            anello_2_done = true;
     }
     
 }
@@ -216,7 +195,6 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
         if(PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
     
             PP.assets.destroy(collapsing_4); 
-            //pavimenti = PP.shapes.rectangle_add(s, 6176, 656, 128, 32, "0xAB4F0F", 1); 
             pavimenti = PP.assets.image.add(s, img_platform_13, 6176, 656, 0.5,0.5);
 
             PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
@@ -232,10 +210,7 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
 
     if(player.geometry.x >= 7700) {
 
-
-            PP.scenes.start("finale");
-
-    
+        PP.scenes.start("finale");
 
     } 
 
@@ -243,7 +218,6 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
 
 
 function destroy (s) {
-
 
 }  
 

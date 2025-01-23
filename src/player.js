@@ -1,11 +1,10 @@
 let img_player;
 let player;
-let player_speed = 170; //rimettere a 170 - 250
+let player_speed = 170; 
 let floor_height = 550;
-let jump_init_speed = 360;  //rimettere a 230 - 350
+let jump_init_speed = 360; 
 
 let curr_anim = "stop_left";
-
 
 
 function preload_player(s) {
@@ -35,6 +34,7 @@ function update_player(s, player) {
         next_anim = "walk";
         
     }
+
     else if(PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
         
         PP.physics.set_velocity_x(player, -player_speed);
@@ -46,7 +46,8 @@ function update_player(s, player) {
 
     PP.physics.set_velocity_x(player, 0);
     next_anim = "stop";
-}
+
+    }
 
 
    if(damage_imm == true){
@@ -56,6 +57,7 @@ function update_player(s, player) {
             next_anim = "hurt_walk";
             
         }
+
         else if(PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
             
             PP.physics.set_velocity_x(player, -player_speed);
@@ -67,7 +69,7 @@ function update_player(s, player) {
     
         PP.physics.set_velocity_x(player, 0);
         next_anim = "hurt_stop";
-    }
+        }
     }
 
 
@@ -77,13 +79,13 @@ function update_player(s, player) {
         
             PP.physics.set_velocity_y(player, -jump_init_speed);   
 
-            if(damage_imm==false){
-            next_anim = "jump_up";
+                if(damage_imm==false){
+                    next_anim = "jump_up";
            
-            }
-            else if (damage_imm == true) {
-                next_anim = "hurt_jump_up"
-            }
+                }
+                else if (damage_imm == true) {
+                    next_anim = "hurt_jump_up"
+                }
         }
 
     }
@@ -97,15 +99,16 @@ function update_player(s, player) {
         }
 
         else if (damage_imm == true) {
-            next_anim = "hurt_jump_up"
+            next_anim = "hurt_jump_up";
         }
 
     }
 
-    else  if (PP.physics.get_velocity_y(player) > 0) {
+    else if (PP.physics.get_velocity_y(player) > 0) {
         if(damage_imm==false){
              next_anim = "jump_down";
         }
+
         else if(damage_imm == true) {
             next_anim = "hurt_jump_down";
         }
@@ -115,14 +118,12 @@ function update_player(s, player) {
     if (PP.physics.get_velocity_x(player) < 0) {
         player.geometry.flip_x = true;
     }
+
     else if (PP.physics.get_velocity_x(player) > 0) {
         player.geometry.flip_x = false;
     }
 
-
-
-    player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
-                                    // si trova sulla piattaforma
+    player.is_on_platform = false; 
 
 
     if(next_anim != curr_anim) {
@@ -136,14 +137,7 @@ function update_player(s, player) {
         PP.scenes.start("game_over");
     }
 
-    //questo in teoria è obsoleto perché ho già aggiunto il muro in pavimenti.js
-    /*if (player.geometry.x <= 0) {
-    //qui andrebbe messo un muro
 
-        console.log ("stop");
-
-    }   */ 
-    
     
     //variabile delle vite e gestione del game over
     let curr_score = PP.game_state.get_variable("vite");

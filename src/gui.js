@@ -9,7 +9,6 @@ let curr_cuori_n;
 let curr_cuori;
 
 let gui;
-//let gui_cuori;
 let gui_cuori_1;
 let gui_cuori_2;
 let gui_cuori_3;
@@ -65,12 +64,11 @@ function update_gui(s,player) {
 
    if (curr_cuori) {
     PP.assets.destroy(curr_cuori);
-}
+    }
 
-curr_cuori = PP.assets.image.add(s, gui_cuori[curr_cuori_n], 140, 50, 0, 0);
-curr_cuori.tile_geometry.scroll_factor_x = 0;
-curr_cuori.tile_geometry.scroll_factor_y = 0;
-
+    curr_cuori = PP.assets.image.add(s, gui_cuori[curr_cuori_n], 140, 50, 0, 0);
+    curr_cuori.tile_geometry.scroll_factor_x = 0;
+    curr_cuori.tile_geometry.scroll_factor_y = 0;
 
 
 }
