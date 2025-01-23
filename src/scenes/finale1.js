@@ -3,20 +3,27 @@ let img_finale_2;
 let home;
 
 function preload (s) {
-    let prev_anello = PP.game_state.get_variable("anello");
-    if (prev_anello < 1){
-    img_finale_1 = PP.assets.image.load(s, "assets/images/eggdog.png");
-}
 
-else if (prev_anello >= 2){
-    
-}
+    img_finale_1 = PP.assets.image.load(s, "assets/images/eggdog.png");
+    img_finale_2 = PP.assets.image.load(s, "assets/images/copertina.png");
+
 }
 
 function create (s){
-    
-    PP.assets.image.add(s, img_finale_1, 0 , 0 , 0, 0)
-    
+    let prev_anello = PP.game_state.get_variable("anello");
+console.log(prev_anello);
+    if(prev_anello <=1){
+        PP.assets.image.add(s, img_finale_2, 0 , 0 , 0, 0);
+        console.log("uwwu");
+    }
+
+    else if(prev_anello>=2){
+        PP.assets.image.add(s, img_finale_2, 0 , 0 , 0, 0);
+        console.log("owo");
+    }
+
+
+
     PP.shapes.text_styled_add(s, 
         100,
         250,

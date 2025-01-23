@@ -63,9 +63,9 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
     //PP.shapes.rectangle_add(s, 0, 740, 10000, 382,"0x634F0F", 1);
     
-    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     //player = PP.assets.sprite.add(s, img_player, -2276, -100, 0.5, 1);  //SPAWN GIUSTO
-    player = PP.assets.sprite.add(s, img_player, 5500, 200, 0.5, 1); //SPAWN PER TEST
+    //player = PP.assets.sprite.add(s, img_player, 7500, 100, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
 
@@ -89,14 +89,15 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
     create_fiume(s,player,fiume);
     create_gui (s);
 
-    PP.game_state.set_variable("vite", 2);
+    PP.game_state.set_variable("vite", 3); //rimetto a 1
+    PP.game_state.set_variable("anello", 0);
 
     //vecchia gui 
     /*txt_score = PP.shapes.text_styled_add(s, 10, 10, "vite: 3", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
 
-    PP.game_state.set_variable("anello", 0);
+    
     txt_score = PP.shapes.text_styled_add(s, 10, 30, "anello: 0", 30, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
     txt_score.tile_geometry.scroll_factor_x = 0;
     txt_score.tile_geometry.scroll_factor_y = 0;
@@ -111,7 +112,6 @@ function update (s){
     /*PP.shapes.text_change(txt_score, "vite: " + PP.game_state.get_variable("vite"));
     PP.shapes.text_change(txt_score, "anello: " + PP.game_state.get_variable("anello"));
 */
-console.log (damage_imm);
 
     update_player(s, player);
 
@@ -190,10 +190,13 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
     }
 
 
-
     if(player.geometry.x >= 7700) {
-        PP.scenes.start("finale1");
-        
+
+
+            PP.scenes.start("finale1");
+
+    
+
     } 
 
 }

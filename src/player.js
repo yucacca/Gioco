@@ -27,7 +27,6 @@ function configure_player_animations(s, player) {
 
 
 function update_player(s, player) {
-console.log(curr_anim);
 
     let next_anim = curr_anim; 
 
@@ -81,7 +80,7 @@ console.log(curr_anim);
 
             if(damage_imm==false){
             next_anim = "jump_up";
-            console.log("caca");
+           
             }
             else if (damage_imm == true) {
                 next_anim = "hurt_jump_up"

@@ -43,19 +43,16 @@ function create_rocce(s,player) {
     rocce_5 = PP.assets.image.add(s, img_rocce, 7480, 100, 0.5,0.5);
     PP.physics.add(s,rocce_5, PP.physics.type.DYNAMIC); 
     PP.physics.add_collider(s, rocce_5, pavimenti_rocce);
-    PP.physics.add_collider_f(s, player, rocce_5, perdi_vite);
     PP.physics.set_allow_gravity(rocce_5, true);    
 
     rocce_6 = PP.assets.image.add(s, img_rocce, 7580, 100, 0.5,0.5);
     PP.physics.add(s,rocce_6, PP.physics.type.DYNAMIC); 
     PP.physics.add_collider(s, rocce_6, pavimenti_rocce);
-    PP.physics.add_collider_f(s, player, rocce_6, perdi_vite);
     PP.physics.set_allow_gravity(rocce_6, true);    
 
     rocce_7 = PP.assets.image.add(s, img_rocce, 8380, 100, 0.5,0.5);
     PP.physics.add(s,rocce_7, PP.physics.type.DYNAMIC); 
     PP.physics.add_collider(s, rocce_7, pavimenti_rocce);
-    PP.physics.add_collider_f(s, player, rocce_7, perdi_vite);
     PP.physics.set_allow_gravity(rocce_7, true);    
     
 }
@@ -64,7 +61,7 @@ function update_rocce(s,player) {
 
     if(damage_imm == false){
         PP.physics.add_overlap_f(s, player, rocce_1, perdi_vite);
-        PP.physics.add_collider_f(s, player, rocce_2, perdi_vite);
+        PP.physics.add_overlap_f(s, player, rocce_2, perdi_vite);
         PP.physics.add_overlap_f(s, player, rocce_3, perdi_vite);
         PP.physics.add_overlap_f(s, player, rocce_4, perdi_vite);
         PP.physics.add_overlap_f(s, player, rocce_5, perdi_vite);
