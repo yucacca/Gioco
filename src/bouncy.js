@@ -55,7 +55,6 @@ function update_bouncy(s){
 
     if (on_bouncy == true) {
         jump_init_speed = 500; 
-        console.log("stinky");
     }
    
     if (on_bouncy == false) {

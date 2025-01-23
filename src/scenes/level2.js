@@ -4,6 +4,14 @@ let img_background_2;
 let img_background_3;
 let img_player;
 let img_bridge; 
+let img_castello;
+let img_rovi_sotto;
+let img_rovo_copertura;
+let img_cartello_dx;
+let img_cartello_sx;
+let img_cartello_barra;
+let img_cartello_f;
+
 
 let floor;
 let player;
@@ -11,6 +19,14 @@ let wall;
 let pavimenti;
 let collapsing;
 let txt_score;
+let castello;
+let rovi_sotto;
+let rovo_copertura;
+let cartello_dx;
+let cartello_sx;
+let cartello_barra;
+let cartello_f;
+
 
 let anello_1_done = false;
 let anello_2_done = false;
@@ -36,9 +52,18 @@ function preload (s) {
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/secondo_piano.png");
     img_background_3 = PP.assets.image.load(s, "assets/images/primo_piano.png");
+    img_rovi_sotto= PP.assets.image.load(s, "assets/images/rovi_sotto.png");
+    img_rovo_copertura= PP.assets.image.load(s, "assets/images/rovo_copertura.png");
+    img_cartello_dx = PP.assets.image.load(s, "assets/images/dx.png");
+    img_cartello_sx = PP.assets.image.load(s, "assets/images/sx.png");
+    img_cartello_barra = PP.assets.image.load(s, "assets/images/barra.png");
+    img_cartello_f = PP.assets.image.load(s, "assets/images/f.png");
+
+
 
     img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 58,108);
     img_bridge = PP.assets.image.load(s, "assets/images/bridge.png");
+    img_castello = PP.assets.image.load(s, "assets/images/castello.png");
     
 }
 
@@ -48,24 +73,18 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
 //setup parallasse per sfondo
     img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -4000, 720, 15000, 850, 0, 1);
-        //img_background_0.tile_geometry.scroll_factor_x = 1;
-
     img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -4000, 720, 15000, 850, 0, 1); 
-        //img_background_1.tile_geometry.scroll_factor_x = 1;
-
     img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -4000, 800, 15000, 850, 0, 1); 
-       // img_background_2.tile_geometry.scroll_factor_x = 1.3;
-
     img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -4500, 900, 18000, 1500, 0, 1); 
-        //img_background_3.tile_geometry.scroll_factor_x = 1.5;
-
-
-
-
     
-    //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
-    //player = PP.assets.sprite.add(s, img_player, -2276, -100, 0.5, 1);  //SPAWN GIUSTO
-    player = PP.assets.sprite.add(s, img_player, 7500, 100, 0.5, 1); //SPAWN PER TEST
+    cartello_dx = PP.assets.image.add(s, img_cartello_dx, -2190, 80, 1,1);
+    cartello_sx = PP.assets.image.add(s, img_cartello_sx, -2350, 80, 1,1);
+    cartello_barra = PP.assets.image.add(s, img_cartello_barra, -1580, 80, 1,1);
+    cartello_f = PP.assets.image.add(s, img_cartello_f, 1344, 500, 0.5,1);
+
+    player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
+    //player = PP.assets.sprite.add(s, img_player, -2376, 83, 0.5, 1);  //SPAWN GIUSTO
+    //player = PP.assets.sprite.add(s, img_player, 7500, 100, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
     PP.physics.set_collision_rectangle(player, 58, 108, 0, -15)
@@ -82,8 +101,12 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
     img_background_2.tile_geometry.scroll_factor_x = 1.1;
     img_background_3.tile_geometry.scroll_factor_x = 1.3;
 
+    
 
     create_pavimenti(s,player, pavimenti);
+
+    castello = PP.assets.image.add(s, img_castello, -2190, 80, 1,1);
+
     create_collapsing(s,player,collapsing);
     create_mobili(s,player);
     create_fiume(s,player,fiume); 
@@ -92,6 +115,10 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
     create_bouncy(s,player,bouncy);
     create_rocce(s,player,pavimenti);
     create_fiume(s,player,fiume);
+
+    rovi_sotto = PP.assets.tilesprite.add(s, img_rovi_sotto, -4500, 700, 18000, 1500, 0, 0);
+    rovo_copertura = PP.assets.tilesprite.add(s, img_rovo_copertura, -4500, 700, 18000, 1500, 0, 0);
+
     create_gui (s);
 
     PP.game_state.set_variable("vite", 3); //rimetto a 1
@@ -108,6 +135,10 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
     txt_score.tile_geometry.scroll_factor_y = 0;
 
     */
+
+
+
+  
 }
 
 
@@ -125,7 +156,7 @@ function update (s){
     update_mobili(s);
     update_bouncy (s);
     update_rocce (s,player);
-    update_gui(s);
+    update_gui(s,player);
     
 
 
@@ -144,7 +175,7 @@ function update (s){
             PP.game_state.set_variable("anello", prev_anello+1);
 
             anello_1_done = true;
-
+        
         }
         
     }
@@ -209,7 +240,6 @@ if (player.geometry.x >=3936 && player.geometry.x <=4064 && anello_2_done == fal
 
 function destroy (s) {
 
-//il problema è che quando va in game over non entra mai nel destroy quindi idk
 
 }  
 

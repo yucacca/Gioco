@@ -66,6 +66,8 @@ function update_rocce(s,player) {
         PP.physics.add_overlap_f(s, player, rocce_4, perdi_vite);
         PP.physics.add_overlap_f(s, player, rocce_5, perdi_vite);
         PP.physics.add_overlap_f(s, player, rocce_6, perdi_vite);
+        PP.physics.add_overlap_f(s, player, rocce_7, perdi_vite);
+
 
         }
 

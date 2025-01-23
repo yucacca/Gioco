@@ -1,45 +1,37 @@
 let riprova;
+let home;
+let img_background;
+
 
 function preload(s) {
+    img_background = PP.assets.image.load(s, "assets/images/game_over.png");
 }
 
 function create(s) {
 
-    // Questa scena di game over contiene solamente
-    // il testo centrato.
+    PP.assets.image.add(s, img_background, 0 , 0, 0, 0)
 
-    PP.shapes.text_styled_add(s, 
-        PP.game.config.canvas_width / 2,
-        PP.game.config.canvas_height / 2,
-        "Game Over",
-        200,
-        "Helvetica",
-        "normal",
-        "0xFFFFFF",
-        null,
-        0.5,
-        0.5);
+    riprova = PP.shapes.rectangle_add(s, 640, 500, 190, 70, "0xE34F0F", 0); 
 
+    if (PP.interactive.mouse.add(riprova, "pointerdown",start_game)){
+   
+    }     
 
-    riprova = PP.shapes.text_styled_add(s, 
-        PP.game.config.canvas_width / 2,
-        600,
-        "Premi spazio per Riprovare",
-        100,
-        "Helvetica",
-        "normal",
-        "0xFFFFFF",
-        null,
-        0.5,
-        0.5);
+    home = PP.shapes.rectangle_add(s, 640, 590, 300, 70, "0xE34F0F", 0); 
+
+    if (PP.interactive.mouse.add(home, "pointerdown",goto_menu)){
+   
+    } 
+
+    function goto_menu(s) {
+        PP.scenes.start("menu");
+    }
 
 }
 
 function update(s) {
 
-    if(PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
-        PP.scenes.start("level2");
-    }
+
 }
 
 function destroy(s) {
