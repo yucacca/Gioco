@@ -24,7 +24,7 @@ function create (s){
         0.5,
         0.5); */
 
-    storia = PP.shapes.rectangle_add(s, 1110, 500, 160, 90, "0x634F0F", 0.3); 
+    storia = PP.shapes.rectangle_add(s, 1100, 340, 170, 70, "0x634F0F", 0); 
         //interazione con il tasto con funzione apposita per andare alla storia (idem per i successivi)
         if (PP.interactive.mouse.add(storia, "pointerdown",goto_storia)){
        
@@ -35,7 +35,7 @@ function create (s){
     }
  
     
-   gioca = PP.shapes.rectangle_add(s, 1110, 600, 180, 90, "0xE34F0F", 0.3); 
+   gioca = PP.shapes.rectangle_add(s, 1100, 430, 170, 70, "0xE34F0F", 0); 
 
         if (PP.interactive.mouse.add(gioca, "pointerdown",start_game)){
        

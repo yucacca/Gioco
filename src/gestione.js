@@ -10,6 +10,10 @@ function goto_game_over(s, obj1, obj2) {
     
 }
 
+function goto_menu(s) {
+    PP.scenes.start("menu");
+}
+
 //player_vite (s);
 //capire dove dichiarare damage_imm perché dà errore e non si resetta correttamente se messa qua
 

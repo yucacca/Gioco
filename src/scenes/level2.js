@@ -132,6 +132,7 @@ console.log (damage_imm);
         
             PP.assets.destroy(rovi_1);  
             PP.assets.destroy(rovi_2);  
+            PP.assets.destroy(rovi_3);
 
 
             let prev_anello = PP.game_state.get_variable("anello");
