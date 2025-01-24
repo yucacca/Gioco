@@ -62,6 +62,8 @@ function create_collapsing(s,player) {
         }
 }
 
+
+/*
 //collapsing 2
     collapsing_2= PP.assets.image.add(s, img_collapsing, 2752, 238, 0.5,0.5);
     PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
@@ -100,7 +102,8 @@ function create_collapsing(s,player) {
 
 
 
-//collapsing 3
+//collapsing 3 
+
     collapsing_3= PP.assets.image.add(s, img_collapsing, 3008, 206, 0.5,0.5);
     PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
     PP.physics.set_immovable(collapsing_3, true);
@@ -135,7 +138,7 @@ function create_collapsing(s,player) {
                 player.is_on_collapsing_3 = false;
             
             }
-    }
+    }*/
 
 
 //collapsing 4
@@ -178,7 +181,7 @@ function create_collapsing(s,player) {
 
 
 //collapsing 5
-    collapsing_5= PP.assets.image.add(s, img_collapsing, 7144, 210, 0.5,0.5);
+    collapsing_5= PP.assets.image.add(s, img_collapsing, 7124, 210, 0.5,0.5);
     PP.physics.add(s, collapsing_5, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(collapsing_5, true);
     PP.physics.set_allow_gravity(collapsing_5, false);     

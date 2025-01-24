@@ -17,8 +17,8 @@ let img_background_corrotto_1;
 let img_background_corrotto_2;
 let img_background_corrotto_3;
 let img_dialogo;
-
-
+let img_checkpoint_1;
+let img_checkpoint_2;
 
 let floor;
 let player;
@@ -39,6 +39,8 @@ let ponte;
 let anello_1_done = false;
 let anello_2_done = false;
 let anello_3_done = false;
+
+let checkpoint = false;
 
 
 
@@ -76,12 +78,18 @@ function preload (s) {
     img_bridge = PP.assets.image.load(s, "assets/images/bridge.png");
     img_castello = PP.assets.image.load(s, "assets/images/castello.png");
     img_dialogo = PP.assets.image.load(s, "assets/images/dialogo.png");
-    
+    img_checkpoint_1 = PP.assets.image.load(s, "assets/images/checkpoint_1.png");
+    img_checkpoint_2 = PP.assets.image.load(s, "assets/images/checkpoint_2.png");
+
 }
 
 
 function create (s){
-damage_imm = false; //per resettare il flag di damage imm, ref gestione.
+    anello_1_done = false;
+    anello_2_done = false;
+    anello_3_done = false;
+
+    damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
 //setup parallasse per sfondo
     img_background_0 = PP.assets.tilesprite.add(s, img_background, -4000, 720, 15000, 850, 0, 1);
@@ -107,8 +115,20 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
     PP.assets.image.add(s, img_dialogo, -2680, -100, 0,1);
 
 
+
+
+    if (checkpoint == false){
+        player = PP.assets.sprite.add(s, img_player, -2376, 83, 0.5, 1); 
+        
+    }
+
+    else if(checkpoint == true){
+        player = PP.assets.sprite.add(s, img_player, 3330, 350, 0.5, 1);
+    }
+
+
     //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
-    player = PP.assets.sprite.add(s, img_player, -2376, 83, 0.5, 1);  //SPAWN GIUSTO
+    //player = PP.assets.sprite.add(s, img_player, -2376, 83, 0.5, 1);  //SPAWN GIUSTO
     //player = PP.assets.sprite.add(s, img_player, 3936, 100, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
@@ -153,6 +173,11 @@ damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
 
 function update (s){
+
+    if (player.geometry.x >= 3300){
+        checkpoint = true;
+    }
+
 
     update_player(s, player);
 
@@ -256,6 +281,25 @@ function update (s){
         }
     
     }
+
+    let checkpoint_n;
+    let curr_checkpoint;
+
+    const checkpoint_asset = [img_checkpoint_1, img_checkpoint_2];
+
+    if (curr_checkpoint) {
+        PP.assets.destroy(curr_checkpoint);
+    }
+
+    if(checkpoint == false){
+        checkpoint_n = 0;
+    }
+
+    if(checkpoint == true){
+        checkpoint_n = 1;
+    }
+
+    curr_checkpoint = PP.assets.image.add(s, checkpoint_asset[checkpoint_n], 3330, 300, 0, 0);
 
 
     if(player.geometry.x >= 7700) {
