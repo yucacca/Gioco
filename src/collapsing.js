@@ -1,6 +1,4 @@
 let collapsing_1;
-let collapsing_2;
-let collapsing_3;
 let collapsing_4;
 let collapsing_5;
 
@@ -62,83 +60,6 @@ function create_collapsing(s,player) {
         }
 }
 
-
-/*
-//collapsing 2
-    collapsing_2= PP.assets.image.add(s, img_collapsing, 2752, 238, 0.5,0.5);
-    PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
-    PP.physics.set_immovable(collapsing_2, true);
-    PP.physics.set_allow_gravity(collapsing_2, false);    
-    PP.physics.add_collider_f(s, player, collapsing_2, collision_collapsing_2);
-
-
-    function collision_collapsing_2(s, player, collapsing_2) {
-        if( player.geometry.x >= collapsing_2.geometry.x - collapsing_2.geometry.display_width &&
-            player.geometry.x <= collapsing_2.geometry.x + collapsing_2.geometry.display_width &&
-            player.geometry.y == collapsing_2.geometry.y - collapsing_2.geometry.display_height/2 + 15) {
-                player.is_on_platform = true;
-                player.is_on_collapsing_2 = true;
-                
-                }
-    
-            function move_collapsing_2(s) {   
-                PP.physics.add(s, collapsing_2, PP.physics.type.DYNAMIC); 
-                PP.physics.set_allow_gravity(collapsing_2, true);  
-                PP.physics.set_velocity_y(collapsing_2, 100);
-            
-            } 
-    
-            if (player.is_on_collapsing_2 == true) {
-    
-                PP.timers.add_timer(s, 250, move_collapsing_2, false);
-            
-            }
-    
-            else {
-                player.is_on_collapsing_2 = false;
-            
-            }
-    }
-
-
-
-//collapsing 3 
-
-    collapsing_3= PP.assets.image.add(s, img_collapsing, 3008, 206, 0.5,0.5);
-    PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
-    PP.physics.set_immovable(collapsing_3, true);
-    PP.physics.set_allow_gravity(collapsing_3, false);    
-    PP.physics.add_collider_f(s, player, collapsing_3, collision_collapsing_3);
-
-    function collision_collapsing_3(s, player, collapsing_3) {
-        if( player.geometry.x >= collapsing_3.geometry.x - collapsing_3.geometry.display_width &&
-            player.geometry.x <= collapsing_3.geometry.x + collapsing_3.geometry.display_width &&
-            player.geometry.y == collapsing_3.geometry.y - collapsing_3.geometry.display_height/2 + 15) {
-                player.is_on_platform = true;
-                player.is_on_collapsing_3 = true;
-                
-                
-        }
-    
-        function move_collapsing_3(s) {   
-            PP.physics.add(s, collapsing_3, PP.physics.type.DYNAMIC); 
-            PP.physics.set_allow_gravity(collapsing_3, true);  
-            PP.physics.set_velocity_y(collapsing_3, 100);
-            
-        } 
-    
-        if (player.is_on_collapsing_3 == true) {
-    
-            PP.timers.add_timer(s, 250, move_collapsing_3, false);
-            
-            
-            }
-    
-        else {
-                player.is_on_collapsing_3 = false;
-            
-            }
-    }*/
 
 
 //collapsing 4
