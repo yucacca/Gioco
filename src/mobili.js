@@ -67,7 +67,7 @@ function update_mobili(s) {
     if(mobili_1.geometry.x >= 2240) {
         PP.physics.set_velocity_x(mobili_1, -130);
     }
-    else if(mobili_1.geometry.x <= 1600) {
+    else if(mobili_1.geometry.x <= 1550) {
         PP.physics.set_velocity_x(mobili_1, 130);
     }
 

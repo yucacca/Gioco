@@ -1,3 +1,4 @@
+let img_background;
 let img_background_0;
 let img_background_1;
 let img_background_2;
@@ -12,6 +13,11 @@ let img_cartello_sx;
 let img_cartello_barra;
 let img_cartello_f;
 let img_topo;
+let img_background_corrotto_1;
+let img_background_corrotto_2;
+let img_background_corrotto_3;
+let img_dialogo;
+
 
 
 let floor;
@@ -28,6 +34,7 @@ let cartello_sx;
 let cartello_barra;
 let cartello_f;
 let topo;
+let ponte;
 
 let anello_1_done = false;
 let anello_2_done = false;
@@ -48,7 +55,7 @@ function preload (s) {
     preload_rocce(s);
     preload_gui (s);
 
-    img_background_0 = PP.assets.image.load(s, "assets/images/quarto_piano.png");
+    img_background = PP.assets.image.load(s, "assets/images/quarto_piano.png");
     img_background_1 = PP.assets.image.load(s, "assets/images/terzo_piano.png");
     img_background_2 = PP.assets.image.load(s, "assets/images/secondo_piano.png");
     img_background_3 = PP.assets.image.load(s, "assets/images/primo_piano.png");
@@ -60,10 +67,15 @@ function preload (s) {
     img_cartello_f = PP.assets.image.load(s, "assets/images/f.png");
     img_topo = PP.assets.image.load(s, "assets/images/topo.png");
 
+    img_background_corrotto_1 = PP.assets.image.load(s, "assets/images/terzopiano_corrotto.png");
+    img_background_corrotto_2 = PP.assets.image.load(s, "assets/images/secondopiano_corrotto.png");
+    img_background_corrotto_3 = PP.assets.image.load(s, "assets/images/primopiano_corrotto.png");
+
 
     img_player = PP.assets.sprite.load_spritesheet(s,"assets/images/protagonista_spritesheet.png", 58,108);
     img_bridge = PP.assets.image.load(s, "assets/images/bridge.png");
     img_castello = PP.assets.image.load(s, "assets/images/castello.png");
+    img_dialogo = PP.assets.image.load(s, "assets/images/dialogo.png");
     
 }
 
@@ -72,22 +84,32 @@ function create (s){
 damage_imm = false; //per resettare il flag di damage imm, ref gestione.
 
 //setup parallasse per sfondo
-    img_background_0 = PP.assets.tilesprite.add(s, img_background_0, -4000, 720, 15000, 850, 0, 1);
+    img_background_0 = PP.assets.tilesprite.add(s, img_background, -4000, 720, 15000, 850, 0, 1);
     img_background_1 = PP.assets.tilesprite.add(s, img_background_1, -4000, 720, 15000, 850, 0, 1); 
     img_background_2 = PP.assets.tilesprite.add(s, img_background_2, -4000, 800, 15000, 850, 0, 1); 
     img_background_3 = PP.assets.tilesprite.add(s, img_background_3, -4500, 900, 18000, 1500, 0, 1); 
+
+    let layer_bg_1 = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_bg_1, img_background_3);
+    PP.layers.set_z_index(layer_bg_1, 0);
+
+    let layer_bg = PP.layers.create(s);
+    PP.layers.add_to_layer(layer_bg, img_background_0);
+    PP.layers.add_to_layer(layer_bg, img_background_1);
+    PP.layers.add_to_layer(layer_bg, img_background_2);
+    PP.layers.set_z_index(layer_bg, -1.2);
     
     cartello_dx = PP.assets.image.add(s, img_cartello_dx, -2190, 80, 1,1);
     cartello_sx = PP.assets.image.add(s, img_cartello_sx, -2350, 80, 1,1);
     cartello_barra = PP.assets.image.add(s, img_cartello_barra, -1580, 80, 1,1);
     cartello_f = PP.assets.image.add(s, img_cartello_f, 1344, 500, 0.5,1);
-    topo = PP.assets.image.add(s, img_topo, -2680, 80, 0.5,1);
-
+    topo = PP.assets.image.add(s, img_topo, -2670, 80, 0.5,1);
+    PP.assets.image.add(s, img_dialogo, -2680, -100, 0,1);
 
 
     //player = PP.assets.sprite.add(s, img_player, 320, 565, 0.5, 1); // VECCHIO SPAWN
     player = PP.assets.sprite.add(s, img_player, -2376, 83, 0.5, 1);  //SPAWN GIUSTO
-    //player = PP.assets.sprite.add(s, img_player, 7500, 100, 0.5, 1); //SPAWN PER TEST
+    //player = PP.assets.sprite.add(s, img_player, 3936, 100, 0.5, 1); //SPAWN PER TEST
 
     PP.physics.add(s, player, PP.physics.type.DYNAMIC); 
     PP.physics.set_collision_rectangle(player, 58, 108, 0, -15)
@@ -153,6 +175,16 @@ function update (s){
             PP.assets.destroy(rovi_2);  
             PP.assets.destroy(rovi_3);
 
+             
+            let bg_corrotto_2 = PP.assets.tilesprite.add(s, img_background_corrotto_2, 1280, 850, 1800, 850, 0, 1); 
+            bg_corrotto_2.tile_geometry.scroll_factor_x = 1.3
+
+            let layer_bg_corrotto= PP.layers.create(s);
+            PP.layers.add_to_layer(layer_bg_corrotto, bg_corrotto_2);
+            PP.layers.set_z_index(layer_bg_corrotto, -1);
+
+            
+
 
             let prev_anello = PP.game_state.get_variable("anello");
             PP.game_state.set_variable("anello", prev_anello+1);
@@ -174,11 +206,22 @@ function update (s){
             PP.assets.destroy(mobili_3);  
             PP.assets.destroy(pavimenti_8a); 
     
-            rovi_2 = PP.assets.image.add(s, img_bridge, 4640, 490, 0.5,0.5);
-            pavimenti = PP.shapes.rectangle_add(s, 4640, 490, 1152, 50, "0xAB4F0F", 0.5); 
+            ponte = PP.assets.image.add(s, img_bridge, 4640, 470, 0.5,0.5);
+            let layer_ponte= PP.layers.create(s);
+            PP.layers.add_to_layer(layer_ponte, ponte);
+            PP.layers.set_z_index(layer_ponte, 1.5);
+
+            pavimenti = PP.shapes.rectangle_add(s, 4640, 490, 1152, 50, "0xAB4F0F", 0); 
             PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
             PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);
         
+
+            let bg_corrotto_2 = PP.assets.tilesprite.add(s, img_background_corrotto_2, 3800, 850, 3000, 850, 0, 1); 
+            bg_corrotto_2.tile_geometry.scroll_factor_x = 1.3
+
+            let layer_bg_corrotto= PP.layers.create(s);
+            PP.layers.add_to_layer(layer_bg_corrotto, bg_corrotto_2);
+            PP.layers.set_z_index(layer_bg_corrotto, -1);
 
             let prev_anello = PP.game_state.get_variable("anello");
             PP.game_state.set_variable("anello", prev_anello+1);
@@ -199,6 +242,13 @@ function update (s){
 
             PP.physics.add(s, pavimenti, PP.physics.type.STATIC); 
             PP.physics.add_collider_f(s, player, pavimenti, collision_pavimenti);  
+
+            let bg_corrotto_2 = PP.assets.tilesprite.add(s, img_background_corrotto_2, 5700, 850, 3000, 850, 0, 1); 
+            bg_corrotto_2.tile_geometry.scroll_factor_x = 1.3
+
+            let layer_bg_corrotto= PP.layers.create(s);
+            PP.layers.add_to_layer(layer_bg_corrotto, bg_corrotto_2);
+            PP.layers.set_z_index(layer_bg_corrotto, -1);
 
             let prev_anello = PP.game_state.get_variable("anello");
             PP.game_state.set_variable("anello", prev_anello+1);
